@@ -1,4 +1,4 @@
 {
     "private": true,
-    "workspaces": ["gatsby-minimal-zenlify-starter", "gatsby-official-starter-blog-theme", "minimal-blog-theme", "gatsby-theme-zenlify-blog", "example", "gatsby-mdx-zenlify-editor-theme"]
+    "workspaces": ["gatsby-minimal-zenlify-starter", "gatsby-mdx-zenlify-editor"]
 }
