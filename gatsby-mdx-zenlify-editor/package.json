@@ -28,7 +28,8 @@
     "slate-history": "0.57.1",
     "slate-hyperscript": "^0.57.1",
     "slate-react": "0.57.1",
-    "slugify": "^1.4.0"
+    "slugify": "^1.4.0",
+    "typeface-lato": "^0.0.75"
   },
   "devDependencies": {
     "gatsby": "^2.20.16",

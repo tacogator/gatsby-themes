@@ -9,7 +9,7 @@ import {
   Typography,
   withStyles,
   makeStyles,
-  Button,
+  Button
 } from "@material-ui/core"
 import { Create } from "@material-ui/icons"
 import { GitClient } from "@tinacms/git-client"
@@ -32,12 +32,12 @@ export const Post = ({ title, slug, description, relFilename, relPath }) => {
     <Card className={classes.root}>
       <div className={classes.postContent}>
         <CardContent>
-          <Typography variant="body1">
+          <Typography variant="h6" color="textSecondary">
             <Link to={slug}>{title}</Link>
           </Typography>
-          <Box paddingTop="1rem" variant="body2">
-            {description}
-          </Box>
+          <Typography variant="body2">
+            <Box paddingTop="1rem">{description}</Box>
+          </Typography>
         </CardContent>
         <CardActions>
           <Button size="small" onClick={deletePost}>Delete</Button>

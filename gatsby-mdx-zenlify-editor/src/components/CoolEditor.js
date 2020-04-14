@@ -52,11 +52,7 @@ export default function CoolEditor({ basePath, pageData, onSave }) {
   const [localFrontmatter, setFrontmatter] = useState(pageData.frontmatter);
   const renderElement = useCallback(
     (props) => (
-      <Element
-        {...props}
-        basePath={basePath}
-        setOpenLink={setOpenLink}
-      />
+      <Element {...props} basePath={basePath} setOpenLink={setOpenLink} />
     ),
     []
   );
@@ -77,6 +73,7 @@ export default function CoolEditor({ basePath, pageData, onSave }) {
 
   useEffect(() => {
     const timer = setInterval(() => {
+      console.log("autosave ...");
       onPresave(documentRef.current);
     }, 45000);
     // not really working
@@ -136,13 +133,7 @@ export default function CoolEditor({ basePath, pageData, onSave }) {
   );
 }
 
-const Element = ({
-  basePath,
-  attributes,
-  children,
-  element,
-  setOpenLink,
-}) => {
+const Element = ({ basePath, attributes, children, element, setOpenLink }) => {
   switch (element.type) {
     case "block-quote":
       return <blockquote {...attributes}>{children}</blockquote>;
