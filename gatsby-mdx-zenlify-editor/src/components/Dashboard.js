@@ -21,7 +21,7 @@ export const Post = ({ title, slug, description, relFilename, relPath }) => {
   const deletePost = async () => {
     try {
       await gitClient.deleteFromDisk({
-        relPath: `posts${slug}/${relFilename}`,
+        relPath: `${relPath}/${relFilename}`,
       })
     } catch (error) {
       console.log("Deleting error ", error)
