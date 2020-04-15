@@ -43,7 +43,7 @@ export const Post = ({ title, slug, description, relFilename, relPath }) => {
           <Button size="small" onClick={deletePost}>Delete</Button>
         </CardActions>
       </div>
-      <Button color="default" fullWidth={true} component={Link} to={`/editor?p=${relPath}`}>
+      <Button color="default" fullWidth={true} href={`/editor?p=${relPath}`}>
         <Create fontSize="small"/>
       </Button>
     </Card>

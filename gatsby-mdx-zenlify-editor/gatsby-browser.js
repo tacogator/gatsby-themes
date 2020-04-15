@@ -5,7 +5,7 @@ require("typeface-lato");
 
 export const wrapPageElement = ({ element, props }) => {
   const env = process.env.NODE_ENV;
-  if (env === "development" || env === "demo") {
+  if (process.env.NODE_ENV === "development" || process.env.zen_dashboard === "true") {
     return <RootWrapper {...props}>{element}</RootWrapper>;
   }
 

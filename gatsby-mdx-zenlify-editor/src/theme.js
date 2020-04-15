@@ -52,13 +52,13 @@ const theme = createMuiTheme({
   },
   palette: {
     primary: {
-      main: `#ff4e20`,
+      main: `#ef9a9a`,
     },
     secondary: {
-      main: `#19857b`,
+      main: `#90a4ae`,
     },
     error: {
-      main: colors.red.A400,
+      main: "#00897b",
     },
     background: {
       default: `rgba(253, 254, 254 , 0.95)`,

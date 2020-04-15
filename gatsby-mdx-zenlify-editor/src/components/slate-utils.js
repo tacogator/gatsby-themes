@@ -143,7 +143,7 @@ export const deserialize = (el) => {
  */
 export const to_markdown = ({ frontmatter, body }) => {
   const { title, description, slug, date } = frontmatter;
-  return `---\ntitle: "${title}"\ndescription: "${description}"\nslug: "${slug}"\ndate: ${date}\n---\n${body}`;
+  return `---\ntitle: \"${title}\"\ndescription: "${description}"\nslug: "${slug}"\ndate: ${date}\n---\n${body}`;
 };
 
 export const new_draft = (slug) => {
