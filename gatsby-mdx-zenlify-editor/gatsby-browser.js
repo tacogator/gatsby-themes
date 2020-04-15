@@ -3,9 +3,12 @@ import RootWrapper from "./src/components/RootWrapper";
 import "./src/styles/global.css";
 require("typeface-lato");
 
+const wrapDashboard =
+  process.env.NODE_ENV === "development" ||
+  process.env.GATSBY_ZEN_DASHBOARD === "true";
+
 export const wrapPageElement = ({ element, props }) => {
-  const env = process.env.NODE_ENV;
-  if (process.env.NODE_ENV === "development" || process.env.zen_dashboard === "true") {
+  if (wrapDashboard) {
     return <RootWrapper {...props}>{element}</RootWrapper>;
   }
 

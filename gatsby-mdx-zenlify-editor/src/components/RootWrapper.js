@@ -16,9 +16,7 @@ export default function ({ path, children }) {
             justifyContent: "center",
           }}
         >
-          <DashboardButton href="/admin">
-            Dashboard
-          </DashboardButton>
+          <DashboardButton href="/admin"/>
         </div>
       )}
 

@@ -7,12 +7,12 @@ export default function DashboardButton({ href, children }) {
     <CoolFab
       disableRipple={true}
       variant="extended"
-      color="secondary"
+      color="primary"
       aria-label="dashboard"
       component={Link}
       to={href}
     >
-      {children}
+      Dashboard
     </CoolFab>
   );
 }

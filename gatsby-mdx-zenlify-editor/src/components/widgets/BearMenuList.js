@@ -1,15 +1,18 @@
-import React from "react"
-import Button from "@material-ui/core/Button"
-import ClickAwayListener from "@material-ui/core/ClickAwayListener"
-import Grow from "@material-ui/core/Grow"
-import Paper from "@material-ui/core/Paper"
-import Popper from "@material-ui/core/Popper"
-import MenuItem from "@material-ui/core/MenuItem"
-import MenuList from "@material-ui/core/MenuList"
-import { makeStyles } from "@material-ui/core/styles"
-import { Link } from "gatsby"
+import React from "react";
+import {
+  Button,
+  Grow,
+  Paper,
+  Popper,
+  MenuItem,
+  MenuList,
+  Divider,
+  ClickAwayListener,
+  makeStyles,
+} from "@material-ui/core";
+import { Link } from "gatsby";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
   },
@@ -19,41 +22,41 @@ const useStyles = makeStyles(theme => ({
   link: {
     boxShadow: "none",
   },
-}))
+}));
 
 export default function BearMenuList({ label }) {
-  const classes = useStyles()
-  const [open, setOpen] = React.useState(false)
-  const anchorRef = React.useRef(null)
+  const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+  const anchorRef = React.useRef(null);
 
   const handleToggle = () => {
-    setOpen(prevOpen => !prevOpen)
-  }
+    setOpen((prevOpen) => !prevOpen);
+  };
 
-  const handleClose = event => {
+  const handleClose = (event) => {
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
-      return
+      return;
     }
 
-    setOpen(false)
-  }
+    setOpen(false);
+  };
 
   function handleListKeyDown(event) {
     if (event.key === "Tab") {
-      event.preventDefault()
-      setOpen(false)
+      event.preventDefault();
+      setOpen(false);
     }
   }
 
   // return focus to the button when we transitioned from !open -> open
-  const prevOpen = React.useRef(open)
+  const prevOpen = React.useRef(open);
   React.useEffect(() => {
     if (prevOpen.current === true && open === false) {
-      anchorRef.current.focus()
+      anchorRef.current.focus();
     }
 
-    prevOpen.current = open
-  }, [open])
+    prevOpen.current = open;
+  }, [open]);
 
   return (
     <div className={classes.root}>
@@ -92,6 +95,15 @@ export default function BearMenuList({ label }) {
                       className={classes.link}
                       onClick={handleClose}
                       component={Link}
+                      to="/editor"
+                    >
+                      New post
+                    </MenuItem>
+                    <Divider light/>
+                    <MenuItem
+                      className={classes.link}
+                      onClick={handleClose}
+                      component={Link}
                       to="/admin"
                     >
                       Dashboard
@@ -112,5 +124,5 @@ export default function BearMenuList({ label }) {
         </Popper>
       </div>
     </div>
-  )
+  );
 }

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Link, graphql, useStaticQuery } from "gatsby";
+import { Link } from "gatsby";
 import { Container, Box, Button, Typography } from "@material-ui/core";
-import path from "path";
 
 import BearAppBar, { SlimToolbar } from "../components/widgets/BearAppBar";
 import MainMenu from "../components/MainMenu";
@@ -18,7 +17,7 @@ export default function Admin({ pageContext }) {
         <Box paddingBottom="2rem" display="flex" justifyContent="space-between">
           <Typography variant="h2">Your posts</Typography>
           <Button
-            color="secondary"
+            color="primary"
             variant="outlined"
             // startIcon={<Create />}
             aria-label="write new"
