@@ -35,18 +35,17 @@ const theme = createMuiTheme({
       letterSpacing: "-0.05rem",
     },
     h6: {
-      fontSize: "1.35rem",
-      fontWeight: "700",
+      fontSize: "1.45rem",
+      fontWeight: "400",
       fontFamily: "Lato,Helvetica neue,helvetica,sans-serif",
       lineHeight: "2rem",
-      letterSpacing: "-0.05rem",
       "& a": {
         color: "inherit",
         textDecoration: "none",
       },
     },
     body2: {
-      fontSize: "1.08rem",
+      fontSize: "1rem",
       fontWeight: "400",
     },
   },
@@ -55,7 +54,11 @@ const theme = createMuiTheme({
       main: `#ef5350`,
     },
     secondary: {
-      main: `#78909c`,
+      main: `#607d8b`,
+    },
+    text: {
+      primary: "#263238",
+      secondary: "#90a4ae"
     },
     error: {
       main: "#00897b",

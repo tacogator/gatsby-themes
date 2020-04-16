@@ -32,10 +32,10 @@ export const Post = ({ title, slug, description, relFilename, relPath }) => {
     <Card className={classes.root}>
       <div className={classes.postContent}>
         <CardContent>
-          <Typography variant="h6" color="textSecondary">
+          <Typography variant="h6" color="textPrimary">
             <Link to={slug}>{title}</Link>
           </Typography>
-          <Typography variant="body2">
+          <Typography variant="body2" colr="textSecondary">
             <Box paddingTop="1rem">{description}</Box>
           </Typography>
         </CardContent>

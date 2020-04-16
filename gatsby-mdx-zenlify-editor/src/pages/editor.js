@@ -67,10 +67,10 @@ export default function Editor({ location }) {
 
     console.log("writing file to disk");
     try {
-      // await gitClient.writeToDisk({
-      //   fileRelativePath: path.join(filename, "index.mdx"),
-      //   content: whole_document,
-      // });
+      await gitClient.writeToDisk({
+        fileRelativePath: path.join(filename, "index.mdx"),
+        content: whole_document,
+      });
       if (slug_has_changed) {
         // console.log("Slug changed - reloading page");
         // navigate(`./editor?p=${newFilename}`, { replace: true });

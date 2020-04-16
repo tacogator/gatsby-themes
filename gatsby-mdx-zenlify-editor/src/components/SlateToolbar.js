@@ -52,7 +52,7 @@ export default function SlateToolbar({ linkState, setOpenLink }) {
           </StyledToggleButtonGroup>
         </SlimToolbar>
         <SlimToolbar>
-          <Button size="small" color="secondary" variant="contained">
+          <Button size="small" color="primary" variant="contained">
             Publish
           </Button>
         </SlimToolbar>
