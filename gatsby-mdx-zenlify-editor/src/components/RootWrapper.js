@@ -7,7 +7,7 @@ export default function ({ path, children }) {
   const currentPath = remove_lashes(path);
   return (
     <TopLayout>
-      {!(currentPath === "admin" || currentPath === "editor") && (
+      {currentPath !== "admin" && currentPath !== "editor" && (
         <div
           style={{
             width: "100%",
@@ -16,7 +16,7 @@ export default function ({ path, children }) {
             justifyContent: "center",
           }}
         >
-          <DashboardButton href="/admin"/>
+          <DashboardButton href="/admin" />
         </div>
       )}
 

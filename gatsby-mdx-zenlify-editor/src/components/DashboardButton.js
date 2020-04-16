@@ -3,6 +3,7 @@ import { Fab, withStyles } from "@material-ui/core";
 import { Link } from "gatsby";
 
 export default function DashboardButton({ href, children }) {
+  console.log(" --- dashboard")
   return (
     <CoolFab
       disableRipple={true}
