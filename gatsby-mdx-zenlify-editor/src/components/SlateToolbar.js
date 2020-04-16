@@ -37,7 +37,7 @@ export default function SlateToolbar({ linkState, setOpenLink }) {
             <BlockButton editor={editor} format="subheader" icon="Header" />
             <BlockButton
               editor={editor}
-              format="block-quote"
+              format="blockquote"
               icon={<FormatQuote />}
             />
           </StyledToggleButtonGroup>

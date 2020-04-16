@@ -135,7 +135,7 @@ export default function CoolEditor({ basePath, pageData, onSave }) {
 
 const Element = ({ basePath, attributes, children, element, setOpenLink }) => {
   switch (element.type) {
-    case "block-quote":
+    case "blockquote":
       return <blockquote {...attributes}>{children}</blockquote>;
     case "bulleted-list":
       return <ul {...attributes}>{children}</ul>;
