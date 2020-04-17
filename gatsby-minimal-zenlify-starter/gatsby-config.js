@@ -8,6 +8,7 @@ module.exports = {
     siteTitleAlt: `Zenlify microblog - Gatsby Theme`,
   },
   plugins: [
+    `gatsby-mdx-zenlify-editor`,
     {
       resolve: `@lekoarts/gatsby-theme-minimal-blog`,
       options: {
@@ -64,6 +65,5 @@ module.exports = {
         ],
       },
     },
-    `gatsby-mdx-zenlify-editor`,
   ],
 }

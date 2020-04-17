@@ -48,7 +48,9 @@ export const Post = ({
           </Typography>
           <Typography variant="body2" color="textSecondary">
             <Box>
-              {moment(date).fromNow()}&nbsp;&nbsp;{wordCount} words
+              <i>
+                Updated {moment(date).fromNow()}&nbsp;&nbsp;- {wordCount} words
+              </i>
             </Box>
             <Box color="text.primary" paddingTop="1rem">
               {description || ""}

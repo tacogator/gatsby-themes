@@ -3,8 +3,8 @@ import React from "react";
 import DashboardButton from "./DashboardButton";
 import TopLayout from "../TopLayout";
 
-export default function ({ path, children }) {
-  const currentPath = remove_lashes(path);
+export default function ({ location, children }) {
+  const currentPath = remove_lashes(location.pathname);
   return (
     <TopLayout>
       {currentPath !== "admin" && currentPath !== "editor" && (
@@ -19,7 +19,6 @@ export default function ({ path, children }) {
           <DashboardButton href="/admin" />
         </div>
       )}
-
       {children}
     </TopLayout>
   );

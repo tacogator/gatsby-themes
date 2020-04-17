@@ -19,9 +19,7 @@ const MinAppBar = withStyles((theme) => ({
     backgroundColor: theme.palette.background.default,
     boxShadow: "none",
     borderTop: "2px solid #9f9f9f",
-    // borderRight:0px solid #9f9f9f,
     borderBottom: "1px solid #dddddd",
-    // borderLeft:0px solid #9f9f9f
   },
 }))(AppBar);
 

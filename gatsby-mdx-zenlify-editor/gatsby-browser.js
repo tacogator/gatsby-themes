@@ -9,7 +9,7 @@ const wrapDashboard =
 
 export const wrapPageElement = ({ element, props }) => {
   if (wrapDashboard) {
-    return <RootWrapper {...props}>{element}</RootWrapper>;
+    return <RootWrapper {...props}>{element}></RootWrapper>;
   }
 
   return element;
