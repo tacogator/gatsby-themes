@@ -9,7 +9,6 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.48",
     "@material-ui/styles": "^4.9.6",
-    "@mdx-js/react": "^1.5.8",
     "@tinacms/api-git": "^0.7.0",
     "@tinacms/git-client": "^0.6.4",
     "cat-names": "^3.0.0",
@@ -17,10 +16,10 @@
     "escape-html": "^1.0.3",
     "gatsby-plugin-create-client-paths": "^2.2.1",
     "gatsby-plugin-exclude": "^1.0.2",
-    "gatsby-plugin-mdx": "^1.1.7",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "is-hotkey": "^0.1.6",
     "is-url": "^1.2.4",
+    "moment": "^2.24.0",
     "node-html-parser": "^1.2.14",
     "react-helmet": "^6.0.0",
     "showdown": "^1.9.1",
@@ -28,7 +27,8 @@
     "slate-history": "0.57.1",
     "slate-hyperscript": "^0.57.1",
     "slate-react": "0.57.1",
-    "slugify": "^1.4.0"
+    "slugify": "^1.4.0",
+    "typeface-lato": "^0.0.75"
   },
   "devDependencies": {
     "gatsby": "^2.20.16",

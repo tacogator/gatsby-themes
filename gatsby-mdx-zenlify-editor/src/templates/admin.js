@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import { Link, graphql, useStaticQuery } from "gatsby";
-import { Container, Box, Button } from "@material-ui/core";
-import path from "path";
+import React from "react";
+import { Link } from "gatsby";
+import { Container, Box, Button, Typography } from "@material-ui/core";
 
 import BearAppBar, { SlimToolbar } from "../components/widgets/BearAppBar";
 import MainMenu from "../components/MainMenu";
@@ -12,18 +11,14 @@ export default function Admin({ pageContext }) {
   return (
     <>
       <BearAppBar rightMenu={<MainMenu />}>
-        <SlimToolbar>
-          <Box display="flex" fontWeight="600">
-            Dashboard
-          </Box>
-        </SlimToolbar>
+        <SlimToolbar></SlimToolbar>
       </BearAppBar>
       <Container maxWidth="md" style={{ paddingTop: "150px" }}>
-        <Box display="flex" justifyContent="flex-end">
+        <Box paddingBottom="2rem" display="flex" justifyContent="space-between">
+          <Typography variant="h2">Your posts</Typography>
           <Button
-            color="secondary"
+            color="primary"
             variant="outlined"
-            // startIcon={<Create />}
             aria-label="write new"
             component={Link}
             to="/editor"
@@ -39,13 +34,7 @@ export default function Admin({ pageContext }) {
 }
 
 const AllPosts = ({ list }) => {
-  return list.map((post) => <Post key={post.slug} {...post} />);
+  return list.map(Post);
 };
-
-// const ShowPost = ({ post }) => {
-//   console.log("#showpost ", post);
-//   const { title, description, slug, relFilename, relPath } = post;
-//   return <Post post={post} />;
-// };
 
 const remove_flashes = (slug) => slug.replace(/^\/|\/$/g, "");

@@ -1,4 +1,4 @@
-import { createMuiTheme, colors, withStyles } from "@material-ui/core"
+import { createMuiTheme, colors, withStyles } from "@material-ui/core";
 
 const breakpointValues = {
   xs: 0,
@@ -6,7 +6,7 @@ const breakpointValues = {
   md: 810,
   lg: 1280,
   xl: 1020,
-}
+};
 
 // A custom theme for this app
 const theme = createMuiTheme({
@@ -16,36 +16,67 @@ const theme = createMuiTheme({
     },
   },
   typography: {
+    fontFamily: [
+      "Lato",
+      "Helvetica Neue",
+      "Helvetica",
+      "-apple-system",
+      "san-serif",
+    ],
     button: {
       textTransform: "none",
       fontSize: "1.125em",
     },
+    h2: {
+      fontSize: "2rem",
+      fontWeight: "700",
+      fontFamily: "Lato,Helvetica neue,helvetica,sans-serif",
+      lineHeight: "2rem",
+      letterSpacing: "-0.05rem",
+    },
+    h6: {
+      fontSize: "1.45rem",
+      fontWeight: "400",
+      fontFamily: "Lato,Helvetica neue,helvetica,sans-serif",
+      lineHeight: "2rem",
+      "& a": {
+        color: "inherit",
+        textDecoration: "none",
+      },
+    },
+    body2: {
+      fontSize: "1rem",
+      fontWeight: "400",
+    },
   },
   palette: {
     primary: {
-      main: `#ff4e20`,
+      main: `#ef5350`,
     },
     secondary: {
-      main: `#19857b`,
+      main: `#607d8b`,
+    },
+    text: {
+      primary: "#263238",
+      secondary: "#90a4ae"
     },
     error: {
-      main: colors.red.A400,
+      main: "#00897b",
     },
     background: {
       default: `rgba(253, 254, 254 , 0.95)`,
     },
   },
   breakpoints: { values: breakpointValues },
-})
+});
 
 export const GlobalCss = withStyles({
   // @global is handled by jss-plugin-global.
   "@global": {
     ".MuiTypography-body1": {
-      // fontFamily: "ISO",
       fontWeight: 400,
       fontSize: "1.125em",
     },
   },
-})(() => null)
-export default theme
+})(() => null);
+export default theme;

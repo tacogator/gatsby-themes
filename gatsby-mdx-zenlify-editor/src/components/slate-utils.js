@@ -17,8 +17,12 @@ const mdToHtmlConverter = new showdown.Converter();
 export const serialize = (node) => {
   // const firstNode = node.children[0]
   const title = Editor.first(node, [])[0].text;
-  const body = mdToHtmlConverter.makeMarkdown(_serialize_body(node))
-  return { title, body: body};
+  const html = _serialize_body(node);
+  console.log(" ---------- html ---------");
+  console.log(html);
+  const body = mdToHtmlConverter.makeMarkdown(html);
+
+  return { title, body: body };
 };
 
 export const _serialize_body = (node) => {
@@ -36,8 +40,8 @@ export const _serialize_body = (node) => {
   const children = node.children.map((n) => _serialize_body(n)).join("");
 
   switch (node.type) {
-    case "quote":
-      return `<blockquote><p>${children}</p></blockquote>`;
+    case "blockquote":
+      return `<blockquote>${children}</blockquote>`;
     case "paragraph":
       return `<p>${children}</p>`;
     case "title":
@@ -68,9 +72,11 @@ export const _serialize_body = (node) => {
  * @param {body} markdown post's body
  */
 export const html_to_slate = ({ frontmatter, body }) => {
-
-  const html = mdToHtmlConverter.makeHtml(body)
-  const el = new DOMParser().parseFromString(html.replace(/\r?\n|\r/g,""), "text/html");
+  const html = mdToHtmlConverter.makeHtml(body);
+  const el = new DOMParser().parseFromString(
+    html.replace(/\r?\n|\r/g, ""),
+    "text/html"
+  );
 
   const tree = deserialize(el.body);
   const titleNode = {
@@ -81,8 +87,8 @@ export const html_to_slate = ({ frontmatter, body }) => {
 };
 
 export const deserialize = (el) => {
-  if (el.nodeType === 3) {
-    return el.textContent;
+  if (el.nodeType === 3 && el.parentNode.nodeName !== "BLOCKQUOTE") {
+    return el.nodeValue;
   } else if (el.nodeType !== 1) {
     return null;
   }
@@ -95,7 +101,7 @@ export const deserialize = (el) => {
       console.log("br");
       return "\n";
     case "BLOCKQUOTE":
-      return jsx("element", { type: "quote" }, children);
+      return jsx("element", { type: "blockquote" }, children);
     case "P":
       return jsx(
         "element",
@@ -143,7 +149,7 @@ export const deserialize = (el) => {
  */
 export const to_markdown = ({ frontmatter, body }) => {
   const { title, description, slug, date } = frontmatter;
-  return `---\ntitle: ${title}\ndescription: ${description}\nslug: ${slug}\ndate: ${date}\n---\n${body}`;
+  return `---\ntitle: \"${title}\"\ndescription: "${description}"\nslug: "${slug}"\ndate: ${date}\n---\n${body}`;
 };
 
 export const new_draft = (slug) => {
@@ -186,7 +192,7 @@ export const withLayout = ({ editor, frontmatter }) => {
   const { normalizeNode } = editor;
 
   editor.normalizeNode = ([node, path]) => {
-    console.log("#normalizing ", node, path);
+    //console.log("#normalizing ", node, path);
     if (path.length === 0) {
       if (editor.children.length < 1) {
         const title = {
@@ -204,15 +210,29 @@ export const withLayout = ({ editor, frontmatter }) => {
       for (const [child, childPath] of Node.children(editor, path)) {
         if (childPath[0] === 0) {
           // first node always title
-          //console.log(" --> first node: enforce header", child, childPath)
+          //console.log(" --> first node: enforce header", child, childPath);
           Transforms.setNodes(editor, { type: "title" }, { at: childPath });
         } else {
-          //console.log("    -- other ", child, childPath)
+          //console.log("    -- other ", child, childPath);
+          if (child.type === "title") {
+            // prevent title from splitting into 2nd line
+            Transforms.setNodes(
+              editor,
+              { type: "paragraph" },
+              { at: childPath }
+            );
+          }
           if (
             childPath[0] === editor.children.length - 1 &&
-            (child.type === "numbered-list" || child.type === "bulleted-list")
+            (child.type === "numbered-list" ||
+              child.type === "bulleted-list" ||
+              child.type === "blockquote")
           ) {
-            console.log("last node is # list", child, childPath);
+            console.log(
+              "last node is block-level - appending 1 blank pagraph as an escape hatch",
+              child,
+              childPath
+            );
             const paragraph = {
               type: "paragraph",
               children: [{ text: "" }],
