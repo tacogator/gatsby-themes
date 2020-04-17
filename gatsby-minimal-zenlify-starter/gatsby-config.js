@@ -6,6 +6,13 @@ module.exports = {
   siteMetadata: {
     siteTitle: `Clarisse`,
     siteTitleAlt: `Zenlify microblog - Gatsby Theme`,
+    siteHeadline: `Zenlify microblog - Gatsby Theme`,
+    siteUrl: `https://gatsby-zenlify.netlify.app/`,
+    siteDescription: `Zenlify gatsby theme - minimal markdown editor for Gatsby`,
+    siteLanguage: `en`,
+    siteImage: `/taco-truck-banner.png`,
+    author: `@nacho_codes`,
+
   },
   plugins: [
     `gatsby-mdx-zenlify-editor`,

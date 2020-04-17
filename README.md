@@ -29,3 +29,8 @@ Inspired by other git-based CMS toolkits (TinaCMS, NetlifyCMS) Zenlify reads and
 https://clever-banach-ab222b.netlify.com/admin
 
 Note: you won't be able to save/publish because the dashboard needs to connect to a local git repo. 
+
+
+---
+
+Food truck icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a>
