@@ -1,5 +1,5 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import { Link } from "gatsby";
 import {
   Paper,
   Box,
@@ -9,25 +9,36 @@ import {
   Typography,
   withStyles,
   makeStyles,
-  Button
-} from "@material-ui/core"
-import { Create } from "@material-ui/icons"
-import { GitClient } from "@tinacms/git-client"
-const gitClient = new GitClient("http://localhost:8000/___tina")
+  Button,
+} from "@material-ui/core";
+import { Create } from "@material-ui/icons";
+import moment from "moment";
+import { GitClient } from "@tinacms/git-client";
 
-export const Post = ({ title, slug, description, relFilename, relPath }) => {
-  const classes = useStyles()
+const gitClient = new GitClient("http://localhost:8000/___tina");
+
+export const Post = ({
+  title,
+  slug,
+  description,
+  date,
+  timeToRead,
+  wordCount,
+  relFilename,
+  relPath,
+}) => {
+  const classes = useStyles();
 
   const deletePost = async () => {
     try {
       await gitClient.deleteFromDisk({
         relPath: `${relPath}/${relFilename}`,
-      })
+      });
     } catch (error) {
-      console.log("Deleting error ", error)
+      console.log("Deleting error ", error);
     }
-  }
-  
+  };
+
   return (
     <Card className={classes.root}>
       <div className={classes.postContent}>
@@ -35,30 +46,37 @@ export const Post = ({ title, slug, description, relFilename, relPath }) => {
           <Typography variant="h6" color="textPrimary">
             <Link to={slug}>{title}</Link>
           </Typography>
-          <Typography variant="body2" colr="textSecondary">
-            <Box paddingTop="1rem">{description}</Box>
+          <Typography variant="body2" color="textSecondary">
+            <Box>
+              {moment(date).fromNow()}&nbsp;&nbsp;{wordCount} words
+            </Box>
+            <Box color="text.primary" paddingTop="1rem">
+              {description || ""}
+            </Box>
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" onClick={deletePost}>Delete</Button>
+          <Button size="small" onClick={deletePost}>
+            Delete
+          </Button>
         </CardActions>
       </div>
       <Button color="default" fullWidth={true} href={`/editor?p=${relPath}`}>
-        <Create fontSize="small"/>
+        <Create fontSize="small" />
       </Button>
     </Card>
-  )
-}
+  );
+};
 
-const Wrapper = withStyles(theme => ({
+const Wrapper = withStyles((theme) => ({
   root: {
     // margin: 0,
     // paddingLeft: 0,
     // paddingRight: 0,
   },
-}))(Paper)
+}))(Paper);
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     minWidth: 275,
@@ -68,4 +86,4 @@ const useStyles = makeStyles(theme => ({
     grow: 1,
     minWidth: "80%",
   },
-}))
+}));

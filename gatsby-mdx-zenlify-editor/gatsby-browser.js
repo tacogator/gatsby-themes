@@ -8,7 +8,6 @@ const wrapDashboard =
   process.env.GATSBY_ZEN_DASHBOARD === "true";
 
 export const wrapPageElement = ({ element, props }) => {
-  console.log("## dashboard  ", wrapDashboard, process.env.GATSBY_ZEN_DASHBOARD)
   if (wrapDashboard) {
     return <RootWrapper {...props}>{element}</RootWrapper>;
   }

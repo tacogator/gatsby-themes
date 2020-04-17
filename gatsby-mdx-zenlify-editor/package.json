@@ -19,6 +19,7 @@
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "is-hotkey": "^0.1.6",
     "is-url": "^1.2.4",
+    "moment": "^2.24.0",
     "node-html-parser": "^1.2.14",
     "react-helmet": "^6.0.0",
     "showdown": "^1.9.1",

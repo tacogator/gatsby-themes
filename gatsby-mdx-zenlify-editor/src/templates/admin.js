@@ -19,7 +19,6 @@ export default function Admin({ pageContext }) {
           <Button
             color="primary"
             variant="outlined"
-            // startIcon={<Create />}
             aria-label="write new"
             component={Link}
             to="/editor"
@@ -35,13 +34,7 @@ export default function Admin({ pageContext }) {
 }
 
 const AllPosts = ({ list }) => {
-  return list.map((post) => <Post key={post.slug} {...post} />);
+  return list.map(Post);
 };
-
-// const ShowPost = ({ post }) => {
-//   console.log("#showpost ", post);
-//   const { title, description, slug, relFilename, relPath } = post;
-//   return <Post post={post} />;
-// };
 
 const remove_flashes = (slug) => slug.replace(/^\/|\/$/g, "");

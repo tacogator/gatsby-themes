@@ -56,10 +56,14 @@ exports.createPages = async (props) => {
             description
             slug
             title
+            date
             ... on MdxPost {
               parent {
                 ... on Mdx {
                   fileAbsolutePath
+                  wordCount {
+                    words
+                  }
                 }
               }
             }
@@ -79,6 +83,7 @@ exports.createPages = async (props) => {
   const posts = dashboardQuery.data.allPost.edges.map(({ node }) => {
     const post = {
       ...node,
+      wordCount: node.parent.wordCount.words,
       relPath: path.join(
         "posts",
         path.basename(path.parse(node.parent.fileAbsolutePath).dir)

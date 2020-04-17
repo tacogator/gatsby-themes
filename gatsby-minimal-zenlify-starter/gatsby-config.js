@@ -5,7 +5,7 @@ require(`dotenv`).config({
 module.exports = {
   siteMetadata: {
     siteTitle: `Clarisse`,
-    siteTitleAlt: `Microblog - Gatsby Theme`,
+    siteTitleAlt: `Zenlify microblog - Gatsby Theme`,
   },
   plugins: [
     {
@@ -25,7 +25,11 @@ module.exports = {
           {
             name: `Twitter`,
             url: `https://twitter.com/nacho_codes`,
-          }
+          },
+          {
+            name: `Github`,
+            url: `https://github.com/tacogator/gatsby-themes`,
+          },          
         ],
       },
     },
@@ -39,7 +43,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Zenlify microblog - minimal example blog`,
+        name: `Zenlify - minimal example blog`,
         short_name: `Zenlify microblog`,
         description: `Git-based microblogging with Gatsby-zenlify built-in editor`,
         start_url: `/`,
@@ -48,12 +52,12 @@ module.exports = {
         display: `standalone`,
         icons: [
           {
-            src: `/android-chrome-192x192.png`,
+            src: `/taco-truck-192.png`,
             sizes: `192x192`,
             type: `image/png`,
           },
           {
-            src: `/android-chrome-512x512.png`,
+            src: `/taco-truck-512.png`,
             sizes: `512x512`,
             type: `image/png`,
           },

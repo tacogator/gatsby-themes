@@ -10,6 +10,8 @@ import {
 } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 
+import { Link } from "gatsby";
+
 const MinAppBar = withStyles((theme) => ({
   root: {
     minHeight: "48px",
@@ -71,6 +73,8 @@ const Default_branding = (
       fontSize: "2.5rem",
     }}
   >
-    Z
+    <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
+      Z
+    </Link>
   </Box>
 );
