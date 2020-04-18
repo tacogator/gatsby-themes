@@ -1,4 +1,4 @@
 {
     "private": true,
-    "workspaces": ["gatsby-minimal-zenlify-starter", "gatsby-mdx-zenlify-editori", "tacogator"]
+    "workspaces": ["gatsby-minimal-zenlify-starter", "gatsby-mdx-zenlify-editor", "tacogator"]
 }
