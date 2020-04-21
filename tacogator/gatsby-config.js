@@ -1,8 +1,29 @@
 module.exports = {
   plugins: [
     {
-      resolve: `gatsby-theme-blog`,
-      options: {},
+      resolve: `@lekoarts/gatsby-theme-minimal-blog`,
+      options: {
+        navigation: [
+          {
+            title: `Blog`,
+            slug: `/blog`,
+          },
+          {
+            title: `About`,
+            slug: `/about`,
+          },
+        ],
+        externalLinks: [
+          {
+            name: `Twitter`,
+            url: `https://twitter.com/nacho_codes`,
+          },
+          {
+            name: `Github`,
+            url: `https://github.com/tacogator/gatsby-themes`,
+          },          
+        ],
+      },
     },
   ],
   // Customize your site metadata:

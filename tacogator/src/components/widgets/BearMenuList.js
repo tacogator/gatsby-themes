@@ -4,13 +4,10 @@ import {
   Grow,
   Paper,
   Popper,
-  MenuItem,
   MenuList,
-  Divider,
   ClickAwayListener,
   makeStyles,
 } from "@material-ui/core";
-import { Link } from "gatsby";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,11 +17,18 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   link: {
+    fontSize: "2rem",
     boxShadow: "none",
+  },
+  menuList: {
+    "& > li": {
+      paddingLeft: theme.spacing(6),
+      paddingRight: theme.spacing(6),
+    },
   },
 }));
 
-export default function BearMenuList({ label }) {
+export default function BearMenuList({ label, children }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
@@ -60,69 +64,45 @@ export default function BearMenuList({ label }) {
 
   return (
     <div className={classes.root}>
-      <div>
-        <Button
-          ref={anchorRef}
-          aria-controls={open ? "menu-list-grow" : undefined}
-          aria-haspopup="true"
-          onClick={handleToggle}
-        >
-          {label}
-        </Button>
-        <Popper
-          open={open}
-          anchorEl={anchorRef.current}
-          role={undefined}
-          transition
-          disablePortal
-        >
-          {({ TransitionProps, placement }) => (
-            <Grow
-              {...TransitionProps}
-              style={{
-                transformOrigin:
-                  placement === "bottom" ? "center top" : "center bottom",
-              }}
-            >
-              <Paper className={classes.paper}>
-                <ClickAwayListener onClickAway={handleClose}>
-                  <MenuList
-                    autoFocusItem={open}
-                    id="menu-list-grow"
-                    onKeyDown={handleListKeyDown}
-                  >
-                    <MenuItem
-                      className={classes.link}
-                      onClick={handleClose}
-                      component={Link}
-                      to="/editor"
-                    >
-                      New post
-                    </MenuItem>
-                    <Divider light/>
-                    <MenuItem
-                      className={classes.link}
-                      onClick={handleClose}
-                      component={Link}
-                      to="/admin"
-                    >
-                      Dashboard
-                    </MenuItem>
-                    <MenuItem
-                      className={classes.link}
-                      onClick={handleClose}
-                      component={Link}
-                      to="/"
-                    >
-                      View blog
-                    </MenuItem>
-                  </MenuList>
-                </ClickAwayListener>
-              </Paper>
-            </Grow>
-          )}
-        </Popper>
-      </div>
+      <Button
+        ref={anchorRef}
+        aria-controls={open ? "menu-list-grow" : undefined}
+        aria-haspopup="true"
+        onClick={handleToggle}
+      >
+        {label}
+      </Button>
+      <Popper
+        open={open}
+        anchorEl={anchorRef.current}
+        role={undefined}
+        transition
+        disablePortal
+      >
+        {({ TransitionProps, placement }) => (
+          <Grow
+            {...TransitionProps}
+            style={{
+              transformOrigin:
+                placement === "bottom" ? "center top" : "center bottom",
+            }}
+          >
+            <Paper className={classes.paper}>
+              <ClickAwayListener onClickAway={handleClose}>
+                <MenuList
+                  className={classes.menuList}
+                  autoFocusItem={open}
+                  id="menu-list-grow"
+                  onKeyDown={handleListKeyDown}
+                  onClick={handleClose}
+                >
+                  {children}
+                </MenuList>
+              </ClickAwayListener>
+            </Paper>
+          </Grow>
+        )}
+      </Popper>
     </div>
   );
 }

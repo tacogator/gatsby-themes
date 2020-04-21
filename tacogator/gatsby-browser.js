@@ -3,12 +3,12 @@ import { MDXProvider } from "@mdx-js/react"
 
 import TopLayout from "./src/TopLayout"
 import { DialogEvents, DialogSimple } from "./src/examples/Dialog"
-//require("typeface-lato");
+import { AppBarMobile, MobileBasicEx, DesktopBasicEx } from "./src/examples/AppBar"
 
-const shortcodes = { DialogEvents, DialogSimple }
+const shortcodes = { DialogEvents, DialogSimple, AppBarMobile, MobileBasicEx, DesktopBasicEx }
 
 export const wrapPageElement = ({ element, props }) => (
   <MDXProvider components={shortcodes}>
-    <TopLayout {...props}>{element}></TopLayout>
+    <TopLayout {...props}>{element}</TopLayout>
   </MDXProvider>
 )

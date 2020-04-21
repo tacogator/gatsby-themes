@@ -1,66 +1,62 @@
-import React from "react";
+import React from "react"
 
 import {
-  Grid,
   AppBar,
   Toolbar,
   Container,
   Hidden,
   Box,
-} from "@material-ui/core";
-import { withStyles } from "@material-ui/core/styles";
+  makeStyles,
+  withStyles,
+} from "@material-ui/core"
 
-import { Link } from "gatsby";
-
-const MinAppBar = withStyles((theme) => ({
+const MinAppBar = withStyles(theme => ({
   root: {
-    minHeight: "48px",
+    minHeight: "64px",
     color: theme.palette.text.primary,
-    backgroundColor: "rgba(250,250,250, .98)",
+    backgroundColor: theme.palette.background.default,
     boxShadow: "none",
     borderTop: "3px solid #CDDC39",
-    borderBottom: "1px solid #dddddd",
+    borderBottom: "1px solid #bdbdbd",
   },
-}))(AppBar);
+}))(AppBar)
 
-export const SlimToolbar = withStyles((theme) => ({
+export const SlimToolbar = withStyles(theme => ({
   root: {
     margin: 0,
     paddingLeft: 0,
     paddingRight: 0,
   },
-}))(Toolbar);
+}))(Toolbar)
 
-export default function BearAppBar({ branding, rightMenu, children }) {
+export default function BearAppBar({
+  position,
+  brandingLogo,
+  brandingText,
+  desktopMenu,
+  mobileMenu,
+}) {
+  const classes = useStyles()
   return (
-    <MinAppBar>
-      <Container maxWidth="lg">
-        <Grid container alignItems="center" justify="space-between">
-          <Hidden mdDown>
-            <Grid item md={1}>
-              <SlimToolbar>{branding || Default_branding}</SlimToolbar>
-            </Grid>
-          </Hidden>
-          <Grid item sm={12} md={10}>
-            <Container
-              maxWidth="md"
-              style={{
-                padding: 0,
-                display: "flex",
-                flexGrow: 1,
-                justifyContent: "space-between",
-              }}
-            >
-              {children}
-            </Container>
-          </Grid>
-          <Grid item md={1}>
-            <Hidden mdDown>{rightMenu || <div>&nbsp;</div>}</Hidden>
-          </Grid>
-        </Grid>
+    <MinAppBar position={position}>
+      <Container
+        maxWidth="lg"
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
+        <SlimToolbar>
+          {brandingLogo || Default_branding}
+          <Hidden only={["xs", "sm"]}>{brandingText}</Hidden>
+        </SlimToolbar>
+        <SlimToolbar className={classes.desktopMenu}>
+          <Hidden only={["xs", "sm"]}>{desktopMenu}</Hidden>
+          <Hidden mdUp>{mobileMenu}</Hidden>
+        </SlimToolbar>
       </Container>
     </MinAppBar>
-  );
+  )
 }
 
 const Default_branding = (
@@ -68,11 +64,20 @@ const Default_branding = (
     style={{
       fontFamily: "Merriweather, Georgia, Cambria, serif",
       color: "#607D8B",
-      fontSize: "2.5rem",
+      fontSize: "2rem",
     }}
   >
-    <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
-      TG
-    </Link>
+    B
   </Box>
-);
+)
+
+const useStyles = makeStyles(theme => ({
+  desktopMenu: {
+    "& > button": {
+      marginRight: theme.spacing(2),
+    },
+    "& > button:last-child": {
+      marginRight: theme.spacing(0),
+    },
+  },
+}))

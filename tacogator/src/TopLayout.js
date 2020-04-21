@@ -23,19 +23,16 @@ export default function TopLayout(props) {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <BearAppBar
-          branding={
-            <>
-              <Slide direction="right" mountOnEnter={true} in={true}>
-                <img src={logo} />
-              </Slide>
-            </>
+          brandingLogo={
+            <Slide direction="right" mountOnEnter={true} in={true}>
+              <img src={logo} />
+            </Slide>
           }
-        >
-          <Box width="100%" display="flex" justifyContent="center">
-            <img src="/logo-text.png" />
-          </Box>
-        </BearAppBar>
-        <Container maxWidth="md" style={{ paddingTop: "150px" }}>
+          brandingText={<img src="/logo-text.png" />}
+          mobileMenu={<div>mobile</div>}
+          desktopMenu={<>Contact us</>}
+        />
+        <Container className="foo" maxWidth="md" style={{ paddingTop: "150px", paddingLeft: "0px", paddingRight: "0px" }}>
           {props.children}
         </Container>
       </ThemeProvider>
