@@ -9,9 +9,15 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@material-ui/core": "^4.9.11",
+    "@material-ui/icons": "^4.9.1",
     "gatsby": "^2.20.12",
     "gatsby-theme-blog": "^1.4.12",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-live": "^2.2.2"
+  },
+  "devDependencies": {
+    "eslint-plugin-mdx": "^1.6.9"
   }
 }
