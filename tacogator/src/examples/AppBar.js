@@ -7,14 +7,25 @@ import {
   Paper,
   Box,
 } from "@material-ui/core"
-import { Menu } from "@material-ui/icons"
+import { Menu, AcUnit as Logo, Menu as Burger } from "@material-ui/icons"
 import { Skeleton } from "@material-ui/lab"
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live"
 
 import BearAppBar, { SlimToolbar } from "../components/widgets/BearAppBar"
 import BearMenuList from "../components/widgets/BearMenuList"
 
-const scope = { Paper, Button, MenuItem, Divider, BearAppBar, BearMenuList }
+import { DesktopScreen, AppLogo, BlockMd } from "../components/UI"
+
+const scope = {
+  Paper,
+  Button,
+  MenuItem,
+  Divider,
+  BearAppBar,
+  BearMenuList,
+  Logo,
+  Burger,
+}
 
 // export const Mobile = () => (
 //   <LiveProvider code={mobile_code} scope={scope}>
@@ -25,57 +36,12 @@ const scope = { Paper, Button, MenuItem, Divider, BearAppBar, BearMenuList }
 // )
 
 export const DesktopBasicEx = () => (
-  <div
-    style={{
-      border: "1px solid #9E9E9E",
-      //   display: "flex",
-      //   alignItems: "flex-start",
-      width: "80%",
-      paddingBottom: "30%",
-    }}
-  >
-    <Box display="flex" justifyContent="space-between" width>
+  <DesktopScreen>
+    <Box display="flex" justifyContent="space-between">
+      <AppLogo />
       <Toolbar>
-        <Skeleton
-          width={32}
-          height={32}
-          variant="circle"
-          style={{ background: "#e53935" }}
-        />
-        &nbsp;
-        <Skeleton
-          width={72}
-          height={32}
-          variant="text"
-          animation="wave"
-          style={{ background: "#26C6DA" }}
-        />
-      </Toolbar>
-      <Toolbar>
-        <Skeleton
-          width={32}
-          height={24}
-          variant="text"
-          animation="false"
-          style={{ background: "#78909C" }}
-        />
-        &nbsp;
-        <Skeleton
-          width={32}
-          height={24}
-          variant="text"
-          animation="false"
-          style={{ background: "#78909C" }}
-        />
-        &nbsp;
-        <Skeleton
-          width={32}
-          height={24}
-          variant="text"
-          animation="false"
-          style={{ background: "#78909C" }}
-        />
-        &nbsp;
+        <BlockMd /> &nbsp;
+        <BlockMd /> &nbsp; <BlockMd /> &nbsp;
         <Skeleton
           width={32}
           height={24}
@@ -84,7 +50,7 @@ export const DesktopBasicEx = () => (
         />
       </Toolbar>
     </Box>
-  </div>
+  </DesktopScreen>
 )
 
 export const MobileBasicEx = () => (
@@ -98,14 +64,7 @@ export const MobileBasicEx = () => (
     }}
   >
     <Box display="flex" justifyContent="space-between" width>
-      <Toolbar>
-        <Skeleton
-          width={32}
-          height={32}
-          variant="circle"
-          style={{ background: "#e53935" }}
-        />
-      </Toolbar>
+      <AppLogo full={false}/>
       <Toolbar>
         <Skeleton
           width={32}
@@ -120,7 +79,7 @@ export const MobileBasicEx = () => (
 )
 
 const mobile_code = `const mobileHamburger = (
-    <BearMenuList label="[=]">
+    <BearMenuList label={<Burger/>}>
       <MenuItem href="/login">Login</MenuItem>
       <Divider />
       <MenuItem href="/services">Services</MenuItem>
@@ -147,18 +106,18 @@ const mobile_code = `const mobileHamburger = (
     </>
   );
 
-function AppBarMobile() {
+function AppBarDemo() {
   return (
     <BearAppBar
       position="static"
-      brandingLogo={<div>Z</div>}
+      brandingLogo={<Logo color="primary"/>}
       brandingText={<div>CoolApp</div>}
       mobileMenu={mobileMenu}
       desktopMenu={desktopMenu}
       />
   )
 }
-render(<Paper height="300px"><AppBarMobile/></Paper>)
+render(<AppBarDemo/>)
 `
 
 export const AppBarMobile = () => (
@@ -168,8 +127,19 @@ export const AppBarMobile = () => (
     noInline={true}
     style={{ background: "#212121" }}
   >
-    <LivePreview />
-    <LiveEditor />
+    <LiveEditorContainer>
+      <LiveEditor />
+    </LiveEditorContainer>
     <LiveError />
+    <p>Resize your browser to see changes</p>
+    <DesktopScreen>
+      <LivePreview />
+    </DesktopScreen>
   </LiveProvider>
+)
+
+const LiveEditorContainer = ({ children }) => (
+  <div style={{ marginTop: "2rem", borderRadius: "2px", background: "#000" }}>
+    {children}
+  </div>
 )

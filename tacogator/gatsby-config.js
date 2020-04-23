@@ -1,6 +1,20 @@
 module.exports = {
   plugins: [
     {
+      resolve: `gatsby-plugin-material-ui`,
+      options: {
+        stylesProvider: {
+          injectFirst: true,
+        },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/TopLayout.js`),
+      },
+    },
+    {
       resolve: `@lekoarts/gatsby-theme-minimal-blog`,
       options: {
         navigation: [
@@ -20,26 +34,20 @@ module.exports = {
           },
           {
             name: `Github`,
-            url: `https://github.com/tacogator/gatsby-themes`,
-          },          
+            url: `https://github.com/tacogator`,
+          },
         ],
       },
     },
   ],
-  // Customize your site metadata:
   siteMetadata: {
-    title: `My Blog Title`,
-    author: `My Name`,
-    description: `My site description...`,
-    social: [
-      {
-        name: `twitter`,
-        url: `https://twitter.com/gatsbyjs`,
-      },
-      {
-        name: `github`,
-        url: `https://github.com/gatsbyjs`,
-      },
-    ],
+    siteTitle: `Tacogator`,
+    siteTitleAlt: `SaaS boilerplate and starters`,
+    siteHeadline: `SaaS boilerplate and starters`,
+    siteUrl: `https://tacogator.netlify.app/`,
+    siteDescription: `Build MVP fast with `,
+    siteLanguage: `en`,
+    siteImage: `/taco-truck-banner.png`,
+    author: `@nacho_codes`,
   },
 }

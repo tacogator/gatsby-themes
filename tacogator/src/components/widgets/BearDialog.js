@@ -79,6 +79,7 @@ export default function BearDialog({
       label: undefined,
     },
   },
+  ...rest
 }) {
   const handleClose = () => setOpen(false)
 
@@ -87,12 +88,12 @@ export default function BearDialog({
   return (
     <div>
       <Dialog
-        disablePortal={true}
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
         fullWidth={true}
         maxWidth="sm"
+        {...rest}
       >
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
           {title}

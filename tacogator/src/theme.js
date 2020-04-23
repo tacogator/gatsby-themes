@@ -1,4 +1,4 @@
-import { createMuiTheme, colors, withStyles } from "@material-ui/core";
+import { createMuiTheme, colors, withStyles } from "@material-ui/core"
 
 const breakpointValues = {
   xs: 0,
@@ -6,14 +6,17 @@ const breakpointValues = {
   md: 810,
   lg: 1280,
   xl: 1020,
-};
+}
 
 // A custom theme for this app
 const theme = createMuiTheme({
   props: {
     MuiButtonBase: {
       disableRipple: true,
-    },
+    }
+  },
+  shape: {
+    borderRadius: 2,
   },
   typography: {
     fontFamily: [
@@ -25,7 +28,8 @@ const theme = createMuiTheme({
     ],
     button: {
       textTransform: "none",
-      fontSize: "1.125em",
+      fontSize: "1rem",
+      boxShadow: "none",
     },
     h2: {
       fontSize: "2rem",
@@ -58,7 +62,7 @@ const theme = createMuiTheme({
     },
     text: {
       primary: "#263238",
-      secondary: "#90a4ae"
+      secondary: "#90a4ae",
     },
     error: {
       main: "#00897b",
@@ -68,15 +72,14 @@ const theme = createMuiTheme({
     },
   },
   breakpoints: { values: breakpointValues },
-});
-
-export const GlobalCss = withStyles({
-  // @global is handled by jss-plugin-global.
-  "@global": {
-    ".MuiTypography-body1": {
-      fontWeight: 400,
-      fontSize: "1.125em",
+  overrides: {
+    MuiButton: {
+      contained: {
+        boxShadow: "none",
+      },
     },
   },
-})(() => null);
-export default theme;
+})
+
+
+export default theme

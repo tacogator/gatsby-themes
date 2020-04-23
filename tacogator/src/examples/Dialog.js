@@ -3,8 +3,13 @@ import { Button } from "@material-ui/core"
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live"
 
 import BearDialog from "../components/widgets/BearDialog"
-
+import { DialogContainer } from "../components/UI"
 const scope = { Button, BearDialog }
+
+export const DialogSkeleton = () => {
+  return <DialogContainer>foo</DialogContainer>
+  //return <BearDialog open={true} setOpen={()=>{}} title="Title" hideBackdrop disablePortal={true}>Foo</BearDialog>
+}
 
 export const DialogSimple = () => (
   <LiveProvider code={example1} scope={scope}>
@@ -23,8 +28,7 @@ const example1 = `function Simple() {
         Click me
       </Button>
       <BearDialog open={open} setOpen={setOpen} title="A serious dialog">
-      They can't scare me, if I scare them first.”
-      ― Lady Gaga
+      They can't scare me, if I scare them first ― Lady Gaga
       </BearDialog>
     </div>
   )
@@ -55,7 +59,7 @@ const dialog_events_code = `function DialogEvents () {
           },
         }}
       >
-        They can't scare me, if I scare them first.” ― Lady Gaga
+        They can't scare me, if I scare them first ― Lady Gaga
       </BearDialog>
     </div>
   )

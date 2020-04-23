@@ -16,7 +16,7 @@ const MinAppBar = withStyles(theme => ({
     color: theme.palette.text.primary,
     backgroundColor: theme.palette.background.default,
     boxShadow: "none",
-    borderTop: "3px solid #CDDC39",
+    borderTop: `1px solid  #a0a0a0`,
     borderBottom: "1px solid #bdbdbd",
   },
 }))(AppBar)
