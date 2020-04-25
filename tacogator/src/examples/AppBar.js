@@ -6,8 +6,11 @@ import {
   Divider,
   Paper,
   Box,
+  ExpansionPanel,
+  ExpansionPanelSummary,
+  ExpansionPanelDetails,
 } from "@material-ui/core"
-import { Menu, AcUnit as Logo, Menu as Burger } from "@material-ui/icons"
+import { Menu, AcUnit as Logo, Menu as Burger, Code } from "@material-ui/icons"
 import { Skeleton } from "@material-ui/lab"
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live"
 
@@ -64,7 +67,7 @@ export const MobileBasicEx = () => (
     }}
   >
     <Box display="flex" justifyContent="space-between" width>
-      <AppLogo full={false}/>
+      <AppLogo full={false} />
       <Toolbar>
         <Skeleton
           width={32}
@@ -127,19 +130,39 @@ export const AppBarMobile = () => (
     noInline={true}
     style={{ background: "#212121" }}
   >
-    <LiveEditorContainer>
-      <LiveEditor />
-    </LiveEditorContainer>
-    <LiveError />
     <p>Resize your browser to see changes</p>
+
     <DesktopScreen>
       <LivePreview />
     </DesktopScreen>
+<p>oo</p>
+    <ExpansionPanel style={{ boxShadow: "none", borderStyle: "none" }}>
+      <ExpansionPanelSummary
+        expandIcon={<Code />}
+        aria-controls="panel1a-content"
+        id="panel1a-header"
+      >
+        Live editor
+      </ExpansionPanelSummary>
+      <ExpansionPanelDetails>
+        <LiveEditorContainer>
+          <LiveEditor />
+        </LiveEditorContainer>
+        <LiveError />
+      </ExpansionPanelDetails>
+    </ExpansionPanel>
   </LiveProvider>
 )
 
 const LiveEditorContainer = ({ children }) => (
-  <div style={{ marginTop: "2rem", borderRadius: "2px", background: "#000" }}>
+  <div
+    style={{
+      width: "100%",
+      marginTop: "2rem",
+      borderRadius: "2px",
+      background: "#000",
+    }}
+  >
     {children}
   </div>
 )
