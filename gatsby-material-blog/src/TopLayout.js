@@ -1,23 +1,20 @@
 import React from "react"
-import { Container, CssBaseline, ThemeProvider } from "@material-ui/core"
+import { MDXProvider } from "@mdx-js/react"
+
+import { CssBaseline, ThemeProvider } from "@material-ui/core"
 
 import Navbar from "./components/Navbar"
 import theme from "./theme"
-
+import MarkdownStyles from "./shadow/markdown-styles"
 export default function TopLayout(props) {
   return (
     <React.Fragment>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Navbar />
-        <Container
-          maxWidth="md"
-          style={{
-            paddingTop: "80px",
-          }}
-        >
+        <Navbar location={props.location} />
+        <MDXProvider components={{...MarkdownStyles}} >
           <main>{props.children}</main>
-        </Container>
+        </MDXProvider>
       </ThemeProvider>
     </React.Fragment>
   )

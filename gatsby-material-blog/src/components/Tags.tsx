@@ -2,7 +2,7 @@ import React from "react";
 import kebabCase from "lodash.kebabcase"
 import Link from "./Link"
 import useMinimalBlogConfig from "./use-minimal-blog-config"
-import SEO from "./SEO"
+import SEO from "./seo"
 import replaceSlashes from "../utils/replaceSlashes"
 
 type PostsProps = {

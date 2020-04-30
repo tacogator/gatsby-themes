@@ -1,7 +1,9 @@
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import { Box, Typography, Container, useTheme } from "@material-ui/core"
+import Img from "gatsby-image"
 import React from "react"
 import ItemTags from "./item-tags"
-import SEO from "./SEO"
+import SEO from "./seo"
 
 // type PostProps = {
 //   data: {
@@ -28,35 +30,48 @@ import SEO from "./SEO"
 //   }
 // }
 
-const px = [`32px`, `16px`, `8px`, `4px`]
-const shadow = px.map((v) => `rgba(0, 0, 0, 0.15) 0px ${v} ${v} 0px`)
 
-const Post = ({ data: { post } }) => (
-//   <Layout>
-<>
-    <SEO
-      title={post.title}
-      description={post.description ? post.description : post.excerpt}
-      image={post.banner ? post.banner.childImageSharp.resize.src : undefined}
-      pathname={post.slug}
-    />
-    <h1>{post.title}</h1>
-    <p sx={{ color: `secondary`, mt: 3, a: { color: `secondary` }, fontSize: [1, 1, 2] }}>
-      <time>{post.date}</time>
-      {post.tags && (
-        <React.Fragment>
-          {` — `} tags&nbsp;
-          <ItemTags tags={post.tags} />
-        </React.Fragment>
-      )}
-      {post.timeToRead && ` — `}
-      {post.timeToRead && <span>{post.timeToRead} min read</span>}
-    </p>
-    <section sx={{ my: 5, ".gatsby-resp-image-wrapper": { my: [4, 4, 5], boxShadow: shadow.join(`, `) } }}>
-      <MDXRenderer>{post.body}</MDXRenderer>
-    </section>
+export default function Post({ data: { post } }) {
+  const theme = useTheme()
+  return (
+    <>
+      <SEO
+        title={post.title}
+        description={post.description ? post.description : post.excerpt}
+        image={post.banner ? post.banner.childImageSharp.fluid.src : undefined}
+        pathname={post.slug}
+      />
+      <Container
+        maxWidth="lg"
+        style={{
+          marginTop: `${theme.spacing(12)}px`,
+          //padding: `${theme.spacing(6)}px`,
+        }}
+      >
+        <Typography variant="h1">{post.title}</Typography>
+        <Box marginTop={4} marginBottom={4}>
+          <time>{post.date}</time>
+          {post.tags && (
+            <React.Fragment>
+              {` — `} Tags&nbsp;
+              <ItemTags tags={post.tags} />
+            </React.Fragment>
+          )}
+          {post.timeToRead && ` — `}
+          {post.timeToRead && <span>{post.timeToRead} min read</span>}
+        </Box>
+        {post.banner && (
+          <Img fluid={post.banner.childImageSharp.fluid} alt={post.title} />
+        )}
+      </Container>
+
+      <Container maxWidth="md" style={{
+        paddingTop: `${theme.spacing(8)}px`
+      }}>
+        <section>
+          <MDXRenderer>{post.body}</MDXRenderer>
+        </section>
+      </Container>
     </>
-//   </Layout>
-)
-
-export default Post
+  )
+}

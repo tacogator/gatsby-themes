@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
     // Used for the title template on pages other than the index site
-    siteTitle: `Lupin`,
+    siteTitle: `Clarrise McClellan`,
     // Default title of the page
-    siteTitleAlt: `Minimal Blog - @lekoarts/gatsby-theme-minimal-blog`,
+    siteTitleAlt: `Clarrise McClellan - material-ui blog template`,
     // Can be used for e.g. JSONLD
-    siteHeadline: `Minimal Blog - Gatsby Theme from @lekoarts`,
+    siteHeadline: `Material-ui blog template for Gatsby`,
     // Will be used to generate absolute URLs for og:image etc.
     siteUrl: `https://minimal-blog.lekoarts.de`,
     // Used for SEO

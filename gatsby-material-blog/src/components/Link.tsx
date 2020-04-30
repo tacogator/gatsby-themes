@@ -11,7 +11,7 @@ type Props = {
   [x:string]: any;
 }
 const Link = (props: Props) => (
-  <MuiLink component={GatsbyLink} {...props}>
+  <MuiLink color="inherit" component={GatsbyLink} {...props}>
     {props.children}
   </MuiLink>
 )

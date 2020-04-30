@@ -1,5 +1,6 @@
-import { createMuiTheme } from "@material-ui/core";
-require("typeface-cooper-hewitt");
+import { createMuiTheme } from "@material-ui/core"
+require("typeface-cooper-hewitt")
+require("typeface-playfair-display")
 
 const breakpointValues = {
   xs: 0,
@@ -7,7 +8,7 @@ const breakpointValues = {
   md: 810,
   lg: 1280,
   xl: 1020,
-};
+}
 
 // A custom theme for this app
 const theme = createMuiTheme({
@@ -16,8 +17,8 @@ const theme = createMuiTheme({
       disableRipple: true,
     },
     MuiButton: {
-      disableElevation: true
-    }
+      disableElevation: true,
+    },
   },
   shape: {
     borderRadius: 8,
@@ -35,22 +36,44 @@ const theme = createMuiTheme({
       fontSize: "1rem",
       boxShadow: "none",
     },
+    h1: {
+      fontSize: "2.25rem",
+      fontWeight: "400",
+      fontFamily: "Playfair Display, Serif",
+      lineHeight: "2.5rem",
+      textTransform: "uppercase",
+    },
     h2: {
       fontSize: "2rem",
-      fontWeight: "700",
+      fontWeight: "500",
       fontFamily: "Cooper Hewitt,Helvetica neue,helvetica,sans-serif",
       lineHeight: "2rem",
+      letterSpacing: "-0.05rem",
+      marginBlockStart: "2.5rem",
+    },
+    h3: {
+      fontSize: "1.75rem",
+      fontWeight: "400",
+      fontFamily: "Playfair Display, Serif",
+      lineHeight: "2.5rem",
       letterSpacing: "-0.05rem",
     },
     h6: {
       fontSize: "1.45rem",
       fontWeight: "400",
-      fontFamily: "Cooper Hewitt,Helvetica neue,helvetica,sans-serif",
+      fontFamily: "Playfair Display, Serif",
       lineHeight: "2rem",
       "& a": {
         color: "inherit",
         textDecoration: "none",
       },
+    },
+    body1: {
+      fontSize: "1.15rem",
+      fontWeight: "400",
+      fontFamily: "Cooper Hewitt,Helvetica neue,helvetica,sans-serif",
+      lineHeight: "2rem",
+      marginBlockStart: "1.45rem",
     },
     body2: {
       fontSize: "1rem",
@@ -92,15 +115,9 @@ const theme = createMuiTheme({
       },
       outlinedSecondary: {
         borderWidth: "2px",
-      }
-    },
-
-    MuiAppBar: {
-      root: {
-        boxShadow: "none",
       },
     },
   },
-});
+})
 
-export default theme;
+export default theme
