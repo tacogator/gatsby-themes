@@ -3,6 +3,7 @@ import { Typography, Box } from "@material-ui/core"
 import Img from "gatsby-image"
 import { Link as GatsbyLink } from "gatsby"
 
+import ItemTags from "./item-tags"
 import Link from "./Link"
 
 export default function ({
@@ -18,7 +19,7 @@ export default function ({
   const bannerFluid = banner ? banner.childImageSharp.fluid : null
   return (
     <Box
-      marginBottom="1rem"
+      //   marginBottom="1rem"
       display="flex"
       flexDirection="column"
       flexWrap="wrap"
@@ -26,20 +27,18 @@ export default function ({
       <Box width="100%">
         {bannerFluid ? (
           <GatsbyLink to={slug}>
-            <Img
-              sizes={{ ...bannerFluid, aspectRatio: 3 / 2 }}
-              alt={title}
-            />
+            <Img sizes={{ ...bannerFluid, aspectRatio: 3 / 2 }} grayscale={true} alt={title} />
           </GatsbyLink>
         ) : null}
       </Box>
 
-      <Box>
-        <Typography color="textPrimary" variant="h6">
-          <Link to={slug}>{title}</Link>
-        </Typography>
-        <Typography variant="body1">{excerpt}</Typography>
-        {/* <p>
+      <ItemTags tags={tags} />
+
+      <Typography color="textPrimary" variant="h6" component="h3" style={{paddingTop: "1rem"}}>
+        <Link to={slug}>{title}</Link>
+      </Typography>
+      <Typography variant="body1" color="textSecondary">{excerpt}</Typography>
+      {/* <p>
           <time>{post.date}</time>
           {post.tags && showTags && (
             <>
@@ -47,7 +46,6 @@ export default function ({
             </>
           )}
         </p> */}
-      </Box>
     </Box>
   )
 }

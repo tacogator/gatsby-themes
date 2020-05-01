@@ -7,7 +7,7 @@ const breakpointValues = {
   sm: 600,
   md: 810,
   lg: 1280,
-  xl: 1020,
+  xl: 1920,
 }
 
 // A custom theme for this app
@@ -21,7 +21,7 @@ const theme = createMuiTheme({
     },
   },
   shape: {
-    borderRadius: 8,
+    borderRadius: 1,
   },
   typography: {
     fontFamily: [
@@ -60,9 +60,10 @@ const theme = createMuiTheme({
     },
     h6: {
       fontSize: "1.45rem",
-      fontWeight: "400",
+      fontWeight: "500",
       fontFamily: "Playfair Display, Serif",
       lineHeight: "2rem",
+      letterSpacing: "-0.05rem",
       "& a": {
         color: "inherit",
         textDecoration: "none",
@@ -73,7 +74,9 @@ const theme = createMuiTheme({
       fontWeight: "400",
       fontFamily: "Cooper Hewitt,Helvetica neue,helvetica,sans-serif",
       lineHeight: "2rem",
-      marginBlockStart: "1.45rem",
+      marginBlockStart: "0.5rem",
+      marginBlockEnd: "1rem",
+
     },
     body2: {
       fontSize: "1rem",

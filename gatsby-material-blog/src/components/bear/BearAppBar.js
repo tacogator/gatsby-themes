@@ -8,14 +8,14 @@ import {
   makeStyles,
   withStyles,
   useScrollTrigger,
-  Typography,
+  Box,
 } from "@material-ui/core"
-
+import { Menu } from "@material-ui/icons"
 const MinAppBar = withStyles(theme => ({
   root: {
-    //minHeight: "64px",
     color: theme.palette.text.primary,
     backgroundColor: theme.palette.background.default,
+    borderTop: "1px solid #CFD8DC",
     borderBottom: "1px solid #CFD8DC",
   },
 }))(AppBar)
@@ -31,46 +31,50 @@ export const SlimToolbar = withStyles(theme => ({
 export default function BearAppBar({
   desktopBranding,
   desktopBrandingSmall,
+  desktopCenter,
+  desktopScrolled,
+  mobileCenter,
+  mobileScrolled,
   mobileBranding,
   desktopMenu,
   mobileMenu,
+  rightCTA,
   leftCTA,
   isHome,
   ...rest
 }) {
   const classes = useStyles()
-  const scrolled = useScrollTrigger({ disableHysteresis: true, threshold: 50 })
-  const trigger = scrolled || !isHome;
+  const scrolled = useScrollTrigger({ disableHysteresis: true, threshold: 100 })
+  const trigger = scrolled || !isHome
   return (
-    <MinAppBar {...rest} elevation={trigger ? 1 : 0}>
+    <MinAppBar {...rest} elevation={0}>
       <Container
         maxWidth="lg"
         style={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          height: trigger ? "48px" : "72px",
-          transition: "0.65s",
         }}
       >
-        <SlimToolbar>
-          {leftCTA && <Hidden only={["xs", "sm"]}>{leftCTA}</Hidden>}
-        </SlimToolbar>
-        <SlimToolbar>
-          <Hidden only={["xs", "sm"]}>
-            <Typography
-              variant="h1"
-              color="textPrimary"
-              style={{ transition: "0.65s", fontSize: trigger ? "1.5rem" : "2.75rem" }}
-            >
-              {desktopBranding}
-            </Typography>
+        <Box>
+          <Hidden lgUp>
+            <Menu />
           </Hidden>
-          <Hidden mdUp>{mobileBranding}</Hidden>
-        </SlimToolbar>
+        </Box>
+
+        <Box
+          display="flex"
+          flexDirection="column"
+          flexWrap="wrap"
+          alignItems="center"
+        >
+          {desktopCenter && (
+            <Hidden only={["xs", "sm"]}>{desktopCenter}</Hidden>
+          )}
+        </Box>
         <SlimToolbar className={classes.desktopMenu}>
-          <Hidden only={["xs", "sm"]}>{desktopMenu}</Hidden>
-          <Hidden mdUp>{mobileMenu}</Hidden>
+          {/* <Hidden only={["xs", "sm"]}>{desktopMenu}</Hidden> */}
+          {rightCTA}
         </SlimToolbar>
       </Container>
     </MinAppBar>
@@ -79,6 +83,7 @@ export default function BearAppBar({
 
 const useStyles = makeStyles(theme => ({
   desktopMenu: {
+    transition: "1s",
     "& > button": {
       marginRight: theme.spacing(2),
     },

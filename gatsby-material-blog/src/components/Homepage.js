@@ -10,8 +10,9 @@ export default function Homepage({ posts }) {
   return (
     <Container
       maxWidth="lg"
+      //className={theme.mixins.toolbar}
       style={{
-        marginTop: `${theme.spacing(12)}px`,
+        paddingTop: `${theme.spacing(12)}px`,
       }}
     >
       <div>
