@@ -2,6 +2,7 @@ import React from "react"
 import { Container, useTheme} from "@material-ui/core"
 
 import Listing from "./listing"
+import SectionDivider from "./section-divider"
 
 import Hero from "../shadow/hero"
 export default function Homepage({ posts }) {
@@ -15,6 +16,7 @@ export default function Homepage({ posts }) {
     >
       <div>
         <Hero />
+        <SectionDivider/>
       </div>
       <Listing posts={posts} showTags={false} />
     </Container>
