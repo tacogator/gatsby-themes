@@ -1,20 +1,23 @@
-import React from "react"
-
-import Link from "./Link"
+import React, { useState } from "react"
 import {
   Button,
+  IconButton,
   Fade,
   Typography,
-  makeStyles,
   useScrollTrigger,
   Hidden,
   Box,
   Container,
 } from "@material-ui/core"
+import { Menu } from "@material-ui/icons"
 
-import BearAppBar, { SlimToolbar } from "./bear/BearAppBar"
+import Link from "./Link"
+import BearAppBar from "./bear/BearAppBar"
+import { SideMenu, DesktopMenu } from "./Menus"
 
 export default function ({ location }) {
+  const [open, setMenuOpen] = useState(false)
+
   const isHome = location.pathname === "/" || false
   const scrolled = useScrollTrigger({ disableHysteresis: true, threshold: 118 })
 
@@ -28,7 +31,9 @@ export default function ({ location }) {
           alignItems: "center",
         }}
       >
-        <Box><Hidden only={["xs", "sm", "md"]}>Social CTA</Hidden></Box>
+        <Box>
+          <Hidden only={["xs", "sm", "md"]}>{Social_CTA()}</Hidden>
+        </Box>
         <DesktopBranding />
 
         <Button color="default" variant="text">
@@ -37,37 +42,28 @@ export default function ({ location }) {
       </Container>
       <BearAppBar
         position={scrolled ? "sticky" : "relative"}
-        desktopCenter={
-          <>
-            <DesktopMenu />
-          </>
-        }
+        desktopCenter={<DesktopMenu />}
         mobileMenu={
-          <>
-            <Button size="small">START HERE</Button>
-            <Button size="small">ABOUT</Button>
-            <Button size="small">CONTACT</Button>
-          </>
+          <IconButton
+            edge="start"
+            color="secondary"
+            onClick={() => setMenuOpen(true)}
+          >
+            <Menu />
+          </IconButton>
         }
         rightCTA={
           <Fade in={true} timeout={1200}>
-            <Button color="default" variant="contained">
+            <Button color="secondary" variant="contained">
               Subscribe
             </Button>
           </Fade>
         }
       />
+      <SideMenu open={open} onClose={() => setMenuOpen(false)} />
     </>
   )
 }
-
-export const DesktopMenu = props => (
-  <SlimToolbar className={useStyles().menu}>
-    <Button size="small">START HERE</Button>
-    <Button size="small">ABOUT</Button>
-    <Button size="small">CONTACT</Button>
-  </SlimToolbar>
-)
 
 const DesktopBranding = props => (
   <Typography
@@ -81,13 +77,5 @@ const DesktopBranding = props => (
   </Typography>
 )
 
-const useStyles = makeStyles(theme => ({
-  menu: {
-    "& > button": {
-      marginRight: theme.spacing(3),
-    },
-    "& > button:last-child": {
-      marginRight: theme.spacing(0),
-    },
-  },
-}))
+//TBD
+const Social_CTA = props => <div></div>

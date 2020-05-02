@@ -6,7 +6,7 @@ export default function Listing({ posts, className, showTags = true }) {
   const theme = useTheme()
   return (
     <section className={className}>
-      <Typography variant="h3" paddingBottom={true}>
+      <Typography variant="h3" gutterBottom={true}>
         Latest
       </Typography>
       <Grid container spacing={4} style={{ paddingTop: theme.spacing(2) }}>

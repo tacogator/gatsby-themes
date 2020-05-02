@@ -10,7 +10,7 @@ import {
   useScrollTrigger,
   Box,
 } from "@material-ui/core"
-import { Menu } from "@material-ui/icons"
+
 const MinAppBar = withStyles(theme => ({
   root: {
     color: theme.palette.text.primary,
@@ -56,11 +56,7 @@ export default function BearAppBar({
           alignItems: "center",
         }}
       >
-        <Box>
-          <Hidden lgUp>
-            <Menu />
-          </Hidden>
-        </Box>
+        <Box>{mobileMenu && <Hidden lgUp>{mobileMenu}</Hidden>}</Box>
 
         <Box
           display="flex"
