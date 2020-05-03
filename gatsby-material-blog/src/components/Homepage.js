@@ -1,25 +1,20 @@
 import React from "react"
-import { Container, useTheme} from "@material-ui/core"
-
+import { Container, Typography } from "@material-ui/core"
 import Listing from "./listing"
-import SectionDivider from "./section-divider"
-
+import { SectionDivider, useUtilStyles } from "./utils"
 import Hero from "../shadow/hero"
+
 export default function Homepage({ posts }) {
-  const theme = useTheme();
   return (
-    <Container
-      maxWidth="lg"
-      //className={theme.mixins.toolbar}
-      style={{
-        paddingTop: `${theme.spacing(12)}px`,
-      }}
-    >
-      <div>
-        <Hero />
-        <SectionDivider/>
-      </div>
-      <Listing posts={posts} showTags={false} />
+    <Container maxWidth="lg" className={useUtilStyles().topSpacer}>
+      <section>
+        <Hero posts={posts} />
+        <SectionDivider />
+      </section>
+      <section>
+        <Typography variant="h3">Latest</Typography>
+        <Listing posts={posts} />
+      </section>
     </Container>
   )
 }

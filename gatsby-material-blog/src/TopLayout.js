@@ -1,6 +1,5 @@
 import React from "react"
 import { MDXProvider } from "@mdx-js/react"
-
 import { CssBaseline, ThemeProvider } from "@material-ui/core"
 
 import Navbar from "./components/Navbar"
@@ -12,7 +11,7 @@ export default function TopLayout(props) {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Navbar location={props.location} />
-        <MDXProvider components={{...MarkdownStyles}} >
+        <MDXProvider components={({ ...MarkdownStyles })}>
           <main>{props.children}</main>
         </MDXProvider>
       </ThemeProvider>

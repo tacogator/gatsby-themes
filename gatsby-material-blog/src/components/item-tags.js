@@ -10,7 +10,7 @@ const ItemTags = ({ tags }) => {
   const { tagsPath, basePath } = useMinimalBlogConfig()
 
   return (
-    <Box paddingTop={2}>
+    <>
       {tags.map((tag, i) => (
           <MinimalChip
           key={tag.slug}
@@ -21,7 +21,7 @@ const ItemTags = ({ tags }) => {
             style={{marginRight: "12px"}}
           />
       ))}
-    </Box>
+    </>
   )
 }
 

@@ -13,6 +13,10 @@ const useSiteMetadata = () => {
           siteLanguage
           siteImage
           author
+          navigation {
+            title
+            slug
+          }
         }
       }
     }

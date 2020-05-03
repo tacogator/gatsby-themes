@@ -30,8 +30,12 @@ module.exports = {
     // Navigation links
     navigation: [
       {
-        title: `Blog`,
-        slug: `/blog`,
+        title: `About`,
+        slug: `/about`,
+      },
+      {
+        title: `Contact`,
+        slug: `/contact`,
       },
     ],
   },

@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 import React from "react"
 import ItemTags from "./item-tags"
 import SEO from "./seo"
-
+import { useUtilStyles } from "./utils"
 // type PostProps = {
 //   data: {
 //     post: {
@@ -30,7 +30,6 @@ import SEO from "./seo"
 //   }
 // }
 
-
 export default function Post({ data: { post } }) {
   const theme = useTheme()
   return (
@@ -41,13 +40,7 @@ export default function Post({ data: { post } }) {
         image={post.banner ? post.banner.childImageSharp.fluid.src : undefined}
         pathname={post.slug}
       />
-      <Container
-        maxWidth="lg"
-        style={{
-          marginTop: `${theme.spacing(12)}px`,
-          //padding: `${theme.spacing(6)}px`,
-        }}
-      >
+      <Container maxWidth="lg" className={useUtilStyles().topSpacer}>
         <Typography variant="h1">{post.title}</Typography>
         <Box marginTop={4} marginBottom={4}>
           <time>{post.date}</time>
@@ -65,9 +58,12 @@ export default function Post({ data: { post } }) {
         )}
       </Container>
 
-      <Container maxWidth="md" style={{
-        paddingTop: `${theme.spacing(8)}px`
-      }}>
+      <Container
+        maxWidth="md"
+        style={{
+          paddingTop: `${theme.spacing(8)}px`,
+        }}
+      >
         <section>
           <MDXRenderer>{post.body}</MDXRenderer>
         </section>

@@ -7,7 +7,6 @@ import {
   Hidden,
   makeStyles,
   withStyles,
-  useScrollTrigger,
   Box,
 } from "@material-ui/core"
 
@@ -32,9 +31,7 @@ export default function BearAppBar({
   desktopBranding,
   desktopBrandingSmall,
   desktopCenter,
-  desktopScrolled,
   mobileCenter,
-  mobileScrolled,
   mobileBranding,
   desktopMenu,
   mobileMenu,
@@ -44,8 +41,6 @@ export default function BearAppBar({
   ...rest
 }) {
   const classes = useStyles()
-  const scrolled = useScrollTrigger({ disableHysteresis: true, threshold: 100 })
-  const trigger = scrolled || !isHome
   return (
     <MinAppBar {...rest} elevation={0}>
       <Container

@@ -16,7 +16,7 @@ import BearAppBar from "./bear/BearAppBar"
 import { SideMenu, DesktopMenu } from "./Menus"
 
 export default function ({ location }) {
-  const [open, setMenuOpen] = useState(false)
+  const [open, setMenuState] = useState(false)
 
   const isHome = location.pathname === "/" || false
   const scrolled = useScrollTrigger({ disableHysteresis: true, threshold: 118 })
@@ -47,7 +47,7 @@ export default function ({ location }) {
           <IconButton
             edge="start"
             color="secondary"
-            onClick={() => setMenuOpen(true)}
+            onClick={() => setMenuState(true)}
           >
             <Menu />
           </IconButton>
@@ -60,7 +60,7 @@ export default function ({ location }) {
           </Fade>
         }
       />
-      <SideMenu open={open} onClose={() => setMenuOpen(false)} />
+      <SideMenu open={open} onClose={() => setMenuState(false)} />
     </>
   )
 }

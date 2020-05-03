@@ -21,7 +21,7 @@ const theme = createMuiTheme({
     },
   },
   shape: {
-    borderRadius: 1,
+    borderRadius: 6,
   },
   typography: {
     fontFamily: [

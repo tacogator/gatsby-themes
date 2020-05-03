@@ -18,34 +18,35 @@ export default function ({
 }) {
   const bannerFluid = banner ? banner.childImageSharp.fluid : null
   return (
-    <Box
-      //   marginBottom="1rem"
-      display="flex"
-      flexDirection="column"
-      flexWrap="wrap"
-    >
+    <Box display="flex" flexDirection="column" flexWrap="wrap" marginBottom={2}>
       <Box width="100%">
         {bannerFluid ? (
           <GatsbyLink to={slug}>
-            <Img sizes={{ ...bannerFluid, aspectRatio: 3 / 2 }} grayscale={true} alt={title} />
+            <Img sizes={{ ...bannerFluid, aspectRatio: 3 / 2 }} alt={title} />
           </GatsbyLink>
         ) : null}
       </Box>
 
-      <ItemTags tags={tags} />
-
-      <Typography color="textPrimary" variant="h6" component="h3" style={{paddingTop: "1rem"}}>
+      <Box paddingTop={2}>
+        <ItemTags tags={tags} />
+      </Box>
+      <Typography
+        color="textPrimary"
+        variant="h6"
+        component="h3"
+        style={{ paddingTop: "1rem" }}
+      >
         <Link to={slug}>{title}</Link>
       </Typography>
-      <Typography variant="body1" color="textSecondary">{excerpt}</Typography>
-      {/* <p>
-          <time>{post.date}</time>
-          {post.tags && showTags && (
-            <>
-              — tags <ItemTags tags={post.tags} />
-            </>
-          )}
-        </p> */}
+      <Typography variant="body1" color="textSecondary">
+        {excerpt} <ReadTime timeToRead={timeToRead} slug={slug} />
+      </Typography>
     </Box>
   )
 }
+
+const ReadTime = ({ timeToRead, slug }) => (
+  <Box fontSize="1rem" color="#bdbdbd" component="span" whiteSpace="nowrap">
+    <Link to={slug}>{` — ${timeToRead} min read`}</Link>
+  </Box>
+)

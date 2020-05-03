@@ -1,17 +1,16 @@
-import React, { useState } from "react"
+import React from "react"
+import { Button, Drawer, List, ListItem, makeStyles } from "@material-ui/core"
+import { SlimToolbar } from "./bear/BearAppBar"
+import { Link } from "gatsby"
+import useSiteMetadata from "./use-site-metadata"
+import replaceSlashes from "../utils/replaceSlashes"
 
-import {
-  Button,
-  Drawer,
-  List,
-  ListItem,
-  makeStyles
-} from "@material-ui/core"
-
-import {SlimToolbar} from "./bear/BearAppBar"
-const items = ["Start here", "About", "Contact"]
-
+/**
+ * Mobile side sliding menu
+ * @param {*} param0
+ */
 export function SideMenu({ open, onClose }) {
+  const { navigation } = useSiteMetadata()
   return (
     <Drawer
       variant="temporary"
@@ -25,26 +24,48 @@ export function SideMenu({ open, onClose }) {
       <Button
         fullWidth={true}
         variant="contained"
-        onClick={() => onClose(false)}
+        onClick={onClose}
       >
         Close
       </Button>
 
       <List>
-        {items.map(text => (
-          <ListItem key={text}>{text}</ListItem>
-        ))}
+        {Array.isArray(navigation) &&
+          navigation.map(({ slug, title }) => (
+            <ListItem
+              key={slug}
+              button={true}
+              component={Link}
+              to={replaceSlashes(slug)}
+              onClick={onClose}
+            >
+              {title}
+            </ListItem>
+          ))}
       </List>
     </Drawer>
   )
 }
 
+/**
+ * Horizontal desktop menu
+ * @param  props
+ */
 export function DesktopMenu(props) {
+  const { navigation } = useSiteMetadata()
   return (
     <SlimToolbar disableGutters className={useStyles().desktopMenu}>
-      {items.map(text => (
-        <Button key={text} size="small">{text.toUpperCase()}</Button>
-      ))}
+      {Array.isArray(navigation) &&
+        navigation.map(({ slug, title }) => (
+          <Button
+            key={slug}
+            size="small"
+            component={Link}
+            to={replaceSlashes(slug)}
+          >
+            {title.toUpperCase()}
+          </Button>
+        ))}
     </SlimToolbar>
   )
 }
