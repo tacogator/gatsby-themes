@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-material-blog",
-  "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "name": "gatsby-theme-material-clarisse-blog",
+  "private": false,
+  "description": "Material-UI blog theme for Gatsby",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "@tacogator",
   "dependencies": {
     "@lekoarts/gatsby-theme-minimal-blog-core": "^2.2.7",
     "@material-ui/core": "^4.9.11",
@@ -24,7 +24,8 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^6.0.0",
     "typeface-cooper-hewitt": "^0.0.44",
-    "typeface-playfair-display": "^1.1.4"
+    "typeface-playfair-display": "^1.1.4",
+    "validate.js": "^0.13.1"
   },
   "devDependencies": {
     "prettier": "2.0.4"
@@ -44,9 +45,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/tacogator/gatsby-themes/gatsby-theme-material-clarisse-blog"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/tacogator/gatsby-themes/issues"
   }
 }

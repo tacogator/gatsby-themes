@@ -19,6 +19,7 @@ type TagProps = {
       name: string
       slug: string
     }[]
+    banner: any
   }[]
   pageContext: {
     isCreatedByStatefulCreatePages: boolean

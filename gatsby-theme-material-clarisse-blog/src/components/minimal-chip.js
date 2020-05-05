@@ -2,11 +2,13 @@ import {Chip, withStyles} from "@material-ui/core"
 
 const MinimalChip = withStyles(theme => ({
     root: {
-      borderRadius: "2px",
-      height: "18px"
+      fontSize: "1rem",
+      background: theme.palette.primary.light
     },
-    label: {
-        padding: "4px"
+    sizeSmall: {
+      height: "18px",
+      borderRadius: "8px",
+      fontSize: "0.8rem",
     }
   }))(Chip)
 

@@ -1,9 +1,17 @@
 import React from "react"
-import { Button, Drawer, List, ListItem, makeStyles } from "@material-ui/core"
+import {
+  Button,
+  Drawer,
+  List,
+  ListItem,
+  Divider,
+  makeStyles,
+} from "@material-ui/core"
 import { SlimToolbar } from "./bear/BearAppBar"
 import { Link } from "gatsby"
 import useSiteMetadata from "./use-site-metadata"
 import replaceSlashes from "../utils/replaceSlashes"
+import BearEmailSubscription from "./bear/BearEmailSubscription"
 
 /**
  * Mobile side sliding menu
@@ -21,11 +29,7 @@ export function SideMenu({ open, onClose }) {
         paper: useStyles().drawerPaper,
       }}
     >
-      <Button
-        fullWidth={true}
-        variant="contained"
-        onClick={onClose}
-      >
+      <Button fullWidth={true} variant="contained" onClick={onClose}>
         Close
       </Button>
 
@@ -43,6 +47,8 @@ export function SideMenu({ open, onClose }) {
             </ListItem>
           ))}
       </List>
+      <Divider />
+      <BearEmailSubscription />
     </Drawer>
   )
 }

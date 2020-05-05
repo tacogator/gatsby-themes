@@ -44,14 +44,13 @@ export default function Post({ data: { post } }) {
         <Typography variant="h1">{post.title}</Typography>
         <Box marginTop={4} marginBottom={4}>
           <time>{post.date}</time>
+          {post.timeToRead && <span>{` — `}{post.timeToRead} min read</span>}
           {post.tags && (
             <React.Fragment>
               {` — `} Tags&nbsp;
-              <ItemTags tags={post.tags} />
+              <ItemTags size="medium" tags={post.tags} />
             </React.Fragment>
           )}
-          {post.timeToRead && ` — `}
-          {post.timeToRead && <span>{post.timeToRead} min read</span>}
         </Box>
         {post.banner && (
           <Img fluid={post.banner.childImageSharp.fluid} alt={post.title} />
