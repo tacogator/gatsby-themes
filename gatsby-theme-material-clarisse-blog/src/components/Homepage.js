@@ -1,6 +1,7 @@
 import React from "react"
-import { Container, Typography } from "@material-ui/core"
+import { Box, Container, Typography } from "@material-ui/core"
 import Listing from "./listing"
+import Link from "./Link"
 import { SectionDivider, useUtilStyles } from "./utils"
 import Hero from "../shadow/hero"
 
@@ -9,10 +10,15 @@ export default function Homepage({ posts }) {
     <Container maxWidth="lg" className={useUtilStyles().topSpacer}>
       <section>
         <Hero posts={posts} />
-        <SectionDivider />
       </section>
-      <section>
-        <Typography variant="h3">Latest</Typography>
+      <section className={useUtilStyles().topSpacer}>
+        <Box display="flex" justifyContent="space-between" alignItems="center">
+          <Typography variant="h3" component="h2" gutterBottom>
+            Latest
+          </Typography>
+          <Link to="blog">View all</Link>
+        </Box>
+        <SectionDivider />
         <Listing posts={posts} />
       </section>
     </Container>

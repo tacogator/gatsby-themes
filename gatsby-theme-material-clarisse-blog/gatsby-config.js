@@ -3,11 +3,11 @@ module.exports = {
     // Used for the title template on pages other than the index site
     siteTitle: `Clarrise McClellan`,
     // Default title of the page
-    siteTitleAlt: `Clarrise McClellan - material-ui blog template`,
+    siteTitleAlt: `Clarrise McClellan - Material-ui blog template for Gatsby`,
     // Can be used for e.g. JSONLD
     siteHeadline: `Material-ui blog template for Gatsby`,
     // Will be used to generate absolute URLs for og:image etc.
-    siteUrl: `https://minimal-blog.lekoarts.de`,
+    siteUrl: `https://gatsby-theme-clarisse.netlify.app/`,
     // Used for SEO
     siteDescription: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and line highlighting.`,
     // Will be set on the <html /> tag
@@ -15,7 +15,7 @@ module.exports = {
     // Used for og:image and must be placed inside the `static` folder
     siteImage: `/banner.jpg`,
     // Twitter Handle
-    author: `@lekoarts_de`,
+    author: `Tacogator`,
     // Links displayed in the header on the right side
     externalLinks: [
       {

@@ -53,10 +53,10 @@ const theme = createMuiTheme({
     },
     h3: {
       fontSize: "1.75rem",
-      fontWeight: "400",
+      fontWeight: "500",
       fontFamily: "Playfair Display, Serif",
-      lineHeight: "2.5rem",
       letterSpacing: "-0.05rem",
+
     },
     h6: {
       fontSize: "1.45rem",

@@ -1,14 +1,16 @@
 import React from "react"
 
-import { Divider, useTheme, makeStyles } from "@material-ui/core"
+import { Divider, useTheme, makeStyles, withStyles } from "@material-ui/core"
 
-export function SectionDivider(props) {
-  const theme = useTheme()
-  return <Divider style={{ margin: `${theme.spacing(4)}px 0px` }} />
-}
+export const SectionDivider = withStyles(theme => ({
+  root: {
+    margin: theme.spacing(0.5, 0, 1, 0),
+    backgroundColor: theme.palette.common.black
+  },
+}))(Divider)
 
 export const useUtilStyles = makeStyles(theme => ({
   topSpacer: {
-    paddingTop: theme.spacing(6),
+    marginTop: theme.spacing(6),
   },
 }))

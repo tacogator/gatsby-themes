@@ -1,11 +1,11 @@
 import React from "react"
-import { Box, Container } from "@material-ui/core"
+import { Typography, Box, Container } from "@material-ui/core"
 import Link from "./Link"
 import useMinimalBlogConfig from "./use-minimal-blog-config"
 import Listing from "./listing"
 import replaceSlashes from "../utils/replaceSlashes"
 import SEO from "./seo"
-import { useUtilStyles } from "./utils"
+import { useUtilStyles, SectionDivider } from "./utils"
 
 type TagProps = {
   posts: {
@@ -35,14 +35,15 @@ const Tag = ({ posts, pageContext }: TagProps) => {
   return (
     <>
       <SEO title={`Tag: ${pageContext.name}`} />
-      <Container maxWidth="md" className={useUtilStyles().topSpacer}>
+      <Container maxWidth="md" className={useUtilStyles().topSpacer} >
         <Box display="flex" justifyContent="space-between" alignItems="center">
-          <h2>{pageContext.name}</h2>
+          <Typography variant="h3" component="h2" gutterBottom>{pageContext.name}</Typography>
           <Link to={replaceSlashes(`/${basePath}/${tagsPath}`)}>
             View all tags
           </Link>
         </Box>
-        <Listing posts={posts} className="foo" />
+        <SectionDivider />
+        <Listing posts={posts} />
       </Container>
     </>
   )
