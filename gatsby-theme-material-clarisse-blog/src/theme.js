@@ -1,4 +1,4 @@
-import { createMuiTheme } from "@material-ui/core"
+import { createMuiTheme, withStyles } from "@material-ui/core"
 require("typeface-cooper-hewitt")
 require("typeface-playfair-display")
 
@@ -47,7 +47,7 @@ const theme = createMuiTheme({
       fontSize: "2rem",
       fontWeight: "500",
       fontFamily: "Cooper Hewitt,Helvetica neue,helvetica,sans-serif",
-      lineHeight: "2rem",
+      //lineHeight: "2rem",
       letterSpacing: "-0.05rem",
       marginBlockStart: "2.5rem",
     },
@@ -56,7 +56,6 @@ const theme = createMuiTheme({
       fontWeight: "500",
       fontFamily: "Playfair Display, Serif",
       letterSpacing: "-0.05rem",
-
     },
     h6: {
       fontSize: "1.45rem",
@@ -76,7 +75,6 @@ const theme = createMuiTheme({
       lineHeight: "2rem",
       marginBlockStart: "0.5rem",
       marginBlockEnd: "1rem",
-
     },
     body2: {
       fontSize: "1rem",
@@ -86,11 +84,11 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       main: `#f44336`,
-      light: `#fbe9e7`
+      light: `#fbe9e7`,
     },
     secondary: {
       main: `#37474F`,
-      light: `#efebe9`
+      light: `#efebe9`,
     },
     text: {
       primary: "#263238",
@@ -124,5 +122,52 @@ const theme = createMuiTheme({
     },
   },
 })
+
+export const GlobalCss = withStyles({
+  // @global is handled by jss-plugin-global.
+  "@global": {
+    'article p>a': { // use 'article' to restrict styles to post
+      "&:visited": {
+        color: theme.palette.grey[600],
+      },
+    },
+    p: {
+      ...theme.typography.body1,
+    },
+    blockquote: {
+      padding: "1.5rem",
+    },
+    "blockquote p": {
+      ...theme.typography.body1,
+      textShadow: "0 1px white",
+      fontSize: "1.5rem",
+      color: theme.palette.text.secondary,
+    },
+    ol: {
+      padding: "0.75rem 2rem",
+    },
+    ul: {
+      padding: "0.75rem 2rem",
+    },
+    "ol li": {
+      ...theme.typography.body1,
+      lineHeight: "1.25",
+    },
+    "ul li": {
+      ...theme.typography.body1,
+      lineHeight: "1.25",
+    },
+    code: {
+      fontFamily: "monospace",
+      background: "#CFD8DC",
+      padding: "4px",
+      borderRadius: "4px",
+      fontSize: "1.15rem",
+    },
+    "pre code": {
+      background: "inherit",
+    },
+  },
+})(() => null)
 
 export default theme

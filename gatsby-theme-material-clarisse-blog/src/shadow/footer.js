@@ -1,5 +1,11 @@
 import React from "react"
-import { Container, Button, Box, useTheme, Typography, Link as ExternalLink } from "@material-ui/core"
+import {
+  Container,
+  Box,
+  useTheme,
+  Typography,
+  Link as ExternalLink,
+} from "@material-ui/core"
 import Link from "../components/Link"
 import { SectionDivider, useUtilStyles } from "../components/utils"
 import useSiteMetadata from "../components/use-site-metadata"
@@ -30,15 +36,23 @@ export default function (props) {
               ))}
           </Box>
           <SectionDivider />
-          <Box display="flex" justifyContent="space-between" alignItems="center" paddingTop={2}>
-            <Box fontSize="0.75rem">
-              <b>{siteTitle}</b> &nbsp;&copy;{" "}
-              {new Date().getFullYear()} by {author}. All Rights Reserved.
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            paddingTop={2}
+          >
+            <Box fontSize="0.85rem">
+              {siteTitle} &nbsp;&copy; {new Date().getFullYear()} by{" "}
+              {author}. All Rights Reserved.
             </Box>
             <Box fontSize="0.75rem">
               Theme by &nbsp;
-              <ExternalLink href="https://github.com/tacogator/gatsby-themes">
-                Tacogator
+              <ExternalLink
+                color="inherit"
+                href="https://github.com/tacogator/gatsby-themes"
+              >
+                <b>Tacogator</b>
               </ExternalLink>
             </Box>
           </Box>

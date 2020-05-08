@@ -1,7 +1,6 @@
 import React from "react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Typography, Container } from "@material-ui/core"
-import Img from "gatsby-image"
 import SEO from "./seo"
 import { useUtilStyles } from "./utils"
 
@@ -21,7 +20,7 @@ const Page = ({ data: { page } }: PageProps) => (
     <SEO title={page.title} description={page.excerpt} />
     <Container maxWidth="md" className={useUtilStyles().topSpacer}>
       <Typography variant="h1">{page.title}</Typography>
-      <section>
+      <section style={{marginTop: "2rem"}}>
         <MDXRenderer>{page.body}</MDXRenderer>
       </section>
     </Container>

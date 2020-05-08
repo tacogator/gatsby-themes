@@ -1,11 +1,11 @@
 import { graphql } from "gatsby"
-import HomepageComponent from "../components/homepage"
+import BlogComponent from "../components/blog"
 
-export default HomepageComponent
+export default BlogComponent
 
 export const query = graphql`
   query($formatString: String!) {
-    allPost(sort: { fields: date, order: DESC }, limit: 6) {
+    allPost(sort: { fields: date, order: DESC }) {
       nodes {
         slug
         title
@@ -13,16 +13,16 @@ export const query = graphql`
         excerpt
         timeToRead
         description
-        banner {
-          childImageSharp {
-            fluid(maxWidth: 1800) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
         tags {
           name
           slug
+        }
+        banner {
+            childImageSharp {
+              fluid(maxWidth: 600) {
+                ...GatsbyImageSharpFluid
+              }
+            }
         }
       }
     }

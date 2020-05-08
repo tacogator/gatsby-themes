@@ -1,5 +1,5 @@
 import React from "react"
-import { Typography, IconButton, Box, useTheme } from "@material-ui/core"
+import { Typography, IconButton, useTheme } from "@material-ui/core"
 import { ArrowRightAlt } from "@material-ui/icons"
 import { navigate } from "gatsby"
 

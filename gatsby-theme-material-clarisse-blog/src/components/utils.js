@@ -1,6 +1,4 @@
-import React from "react"
-
-import { Divider, useTheme, makeStyles, withStyles } from "@material-ui/core"
+import { Divider, makeStyles, withStyles } from "@material-ui/core"
 
 export const SectionDivider = withStyles(theme => ({
   root: {

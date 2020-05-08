@@ -4,7 +4,6 @@ import {
   IconButton,
   Fade,
   Typography,
-  useScrollTrigger,
   Hidden,
   Box,
   Container,
@@ -18,8 +17,8 @@ import { SideMenu, DesktopMenu } from "./Menus"
 export default function ({ location }) {
   const [open, setMenuState] = useState(false)
 
-  const isHome = location.pathname === "/" || false
-  const scrolled = useScrollTrigger({ disableHysteresis: true, threshold: 118 })
+  // optional var to handle non-home page rendering
+  // const isHome = location.pathname === "/" || false
 
   return (
     <>
@@ -41,7 +40,7 @@ export default function ({ location }) {
         </Button>
       </Container>
       <BearAppBar
-        position={scrolled ? "sticky" : "relative"}
+        position="sticky"
         desktopCenter={<DesktopMenu />}
         mobileMenu={
           <IconButton

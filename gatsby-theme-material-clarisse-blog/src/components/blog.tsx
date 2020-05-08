@@ -15,6 +15,7 @@ type PostsProps = {
     excerpt: string
     description: string
     timeToRead?: number
+    banner?: any
     tags?: {
       name: string
       slug: string
