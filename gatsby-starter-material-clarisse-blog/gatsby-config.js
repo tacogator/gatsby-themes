@@ -13,7 +13,7 @@ module.exports = {
     // Will be set on the <html /> tag
     siteLanguage: `en`,
     // Used for og:image and must be placed inside the `static` folder
-    siteImage: `/banner.jpg`,
+    siteImage: `/banner.png`,
     // Twitter Handle
     author: `Tacogator`,
     // Navigation links
@@ -27,23 +27,45 @@ module.exports = {
         slug: `/contact`,
       },
     ],
+    externalLinks: [
+      {
+        name: `twitter`,
+        url: `https://twitter.com/nacho_codes`,
+      },
+      {
+        name: `github`,
+        url: `https://github.com/tacogator/gatsby-themes`,
+      }
+    ],
   },
   plugins: [
     {
       resolve: `gatsby-theme-material-clarisse-blog`,
+    },
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-manifest`,
       options: {
-        // Links displayed in the header on the right side
-        externalLinks: [
+        name: `Clarrise - Example Gatsby blog`,
+        short_name: `Clarrise - Example Gatsby blog`,
+        description: `Launch a blog today with Clarrise template.  Gatsby starter theme`,
+        start_url: `/`,
+        background_color: `#fafafa`,
+        theme_color: `#00897B`,
+        display: `standalone`,
+        icons: [
           {
-            name: `Twitter`,
-            url: `https://twitter.com/lekoarts_de`,
+            src: `/android-chrome-192x192.png`,
+            sizes: `192x192`,
+            type: `image/png`,
           },
           {
-            name: `Instagram`,
-            url: `https://www.instagram.com/lekoarts.de/`,
+            src: `/android-chrome-512x512.png`,
+            sizes: `512x512`,
+            type: `image/png`,
           },
         ],
       },
-    }
+    },
   ],
 };

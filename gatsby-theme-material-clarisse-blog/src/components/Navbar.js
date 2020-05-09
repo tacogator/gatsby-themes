@@ -13,6 +13,7 @@ import { Menu } from "@material-ui/icons"
 import Link from "./Link"
 import BearAppBar from "./bear/BearAppBar"
 import { SideMenu, DesktopMenu } from "./Menus"
+import SocialLinks from "./social-links"
 
 export default function ({ location }) {
   const [open, setMenuState] = useState(false)
@@ -30,9 +31,13 @@ export default function ({ location }) {
           alignItems: "center",
         }}
       >
-        <Box>
-          <Hidden only={["xs", "sm", "md"]}>{Social_CTA()}</Hidden>
-        </Box>
+        <div>
+          <Hidden only={["xs", "sm", "md"]}>
+            <Box color="text.secondary" display="flex: 1 0 calc(25% - 10px)">
+              <SocialLinks iconSize="small" />
+            </Box>
+          </Hidden>
+        </div>
         <DesktopBranding />
 
         <Button color="default" variant="text">
@@ -75,6 +80,3 @@ const DesktopBranding = props => (
     </Link>
   </Typography>
 )
-
-//TBD
-const Social_CTA = props => <div></div>

@@ -6,6 +6,9 @@ import { navigate } from "gatsby"
 import Link from "../components/Link"
 
 export default ({ posts }) => {
+  if (!(Array.isArray(posts) && posts.length > 0)) {
+    return null
+  }
   const firstPost = posts[0]
   const { title, banner, slug } = firstPost
   const theme = useTheme()
@@ -22,7 +25,7 @@ export default ({ posts }) => {
         flexDirection: "column",
         flexWrap: "wrap",
         justifyContent: "flex-end",
-        cursor: "pointer"
+        cursor: "pointer",
       }}
       onClick={() => {
         navigate(slug)

@@ -17,6 +17,10 @@ const useSiteMetadata = () => {
             title
             slug
           }
+          externalLinks {
+            name
+            url
+          }
         }
       }
     }
