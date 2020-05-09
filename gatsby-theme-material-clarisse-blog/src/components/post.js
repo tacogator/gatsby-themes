@@ -43,17 +43,17 @@ export default function Post({ data: { post } }) {
       <article>
         <Container maxWidth="lg" className={useUtilStyles().topSpacer}>
           <Typography variant="h1">{post.title}</Typography>
-          <Box marginTop={4} marginBottom={4}>
+          <Box fontSize="0.85rem" marginTop={4} marginBottom={4}>
             <time>{post.date}</time>
             {post.timeToRead && (
               <span>
                 {` — `}
-                {post.timeToRead} min read
+                {post.timeToRead} MIN READ
               </span>
             )}
             {post.tags && (
               <React.Fragment>
-                {` — `} Tags&nbsp;
+                {` — `} TAGS&nbsp;
                 <ItemTags size="medium" tags={post.tags} />
               </React.Fragment>
             )}

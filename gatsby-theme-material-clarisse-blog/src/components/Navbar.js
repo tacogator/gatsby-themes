@@ -14,6 +14,7 @@ import Link from "./Link"
 import BearAppBar from "./bear/BearAppBar"
 import { SideMenu, DesktopMenu } from "./Menus"
 import SocialLinks from "./social-links"
+import CtaOne from "./cta-one"
 
 export default function ({ location }) {
   const [open, setMenuState] = useState(false)
@@ -40,9 +41,9 @@ export default function ({ location }) {
         </div>
         <DesktopBranding />
 
-        <Button color="default" variant="text">
-          Newsletter
-        </Button>
+        <div>
+          <CtaOne/>
+        </div>
       </Container>
       <BearAppBar
         position="sticky"

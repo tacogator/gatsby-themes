@@ -25,16 +25,19 @@ export default function SocialLinks({ iconSize }) {
   return (
     <>
       {Array.isArray(externalLinks) &&
-        externalLinks.map(({ name, url }) => (
-          <Link
-            color="inherit"
-            href={url}
-            variant="inherit"
-            style={{ paddingRight: "12px" }}
-          >
-            {Icon_maps[name] || name}
-          </Link>
-        ))}
+        externalLinks
+          .filter(({ type }) => type !== "cta")
+          .map(({ name, url }) => (
+            <Link
+              key={name}
+              color="inherit"
+              href={url}
+              variant="inherit"
+              style={{ paddingRight: "12px" }}
+            >
+              {Icon_maps[name] || name}
+            </Link>
+          ))}
     </>
   )
 }

@@ -4,21 +4,24 @@ import {
   Drawer,
   List,
   ListItem,
+  Box,
   Divider,
   makeStyles,
+  Typography,
 } from "@material-ui/core"
 import { SlimToolbar } from "./bear/BearAppBar"
 import { Link } from "gatsby"
 import useSiteMetadata from "./use-site-metadata"
 import replaceSlashes from "../utils/replaceSlashes"
-import BearEmailSubscription from "./bear/BearEmailSubscription"
-
+//import BearEmailSubscription from "./bear/BearEmailSubscription"
+import SocialLinks from "./social-links"
 /**
  * Mobile side sliding menu
  * @param {*} param0
  */
 export function SideMenu({ open, onClose }) {
   const { navigation } = useSiteMetadata()
+  const classes = useStyles()
   return (
     <Drawer
       variant="temporary"
@@ -26,7 +29,7 @@ export function SideMenu({ open, onClose }) {
       open={open}
       onClose={onClose}
       classes={{
-        paper: useStyles().drawerPaper,
+        paper: classes.drawerPaper,
       }}
     >
       <Button fullWidth={true} variant="contained" onClick={onClose}>
@@ -37,6 +40,7 @@ export function SideMenu({ open, onClose }) {
         {Array.isArray(navigation) &&
           navigation.map(({ slug, title }) => (
             <ListItem
+              className={classes.mobileMenuItem}
               key={slug}
               button={true}
               component={Link}
@@ -47,8 +51,22 @@ export function SideMenu({ open, onClose }) {
             </ListItem>
           ))}
       </List>
+
       <Divider />
-      <BearEmailSubscription />
+
+      <Box
+        color="text.secondary"
+        padding={3}
+      >
+        <Typography variant="body2">Follow us:</Typography>
+        <Box display="flex" padding="1rem 1.5rem" flexWrap="wrap">
+          <SocialLinks iconSize="large" />
+        </Box>
+      </Box>
+
+      <Divider />
+
+      {/* <BearEmailSubscription /> */}
     </Drawer>
   )
 }
@@ -83,6 +101,11 @@ const useStyles = makeStyles(theme => ({
       width: "100%",
     },
   },
+
+  mobileMenuItem: {
+    padding: theme.spacing(1.5, 3)
+  },
+
   desktopMenu: {
     "& > button": {
       marginRight: theme.spacing(3),

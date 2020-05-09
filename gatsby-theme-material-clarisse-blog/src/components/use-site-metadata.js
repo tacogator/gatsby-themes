@@ -20,6 +20,7 @@ const useSiteMetadata = () => {
           externalLinks {
             name
             url
+            type
           }
         }
       }

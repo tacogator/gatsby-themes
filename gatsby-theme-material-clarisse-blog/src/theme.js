@@ -44,8 +44,8 @@ const theme = createMuiTheme({
       textTransform: "uppercase",
     },
     h2: {
-      fontSize: "2rem",
-      fontWeight: "500",
+      fontSize: "1.65rem",
+      fontWeight: "600",
       fontFamily: "Cooper Hewitt,Helvetica neue,helvetica,sans-serif",
       //lineHeight: "2rem",
       letterSpacing: "-0.05rem",
@@ -69,12 +69,12 @@ const theme = createMuiTheme({
       },
     },
     body1: {
-      fontSize: "1.15rem",
+      fontSize: "1.32rem",
       fontWeight: "400",
       fontFamily: "Cooper Hewitt,Helvetica neue,helvetica,sans-serif",
-      lineHeight: "2rem",
-      marginBlockStart: "0.5rem",
-      marginBlockEnd: "1rem",
+      lineHeight: "2.15rem",
+      marginBlockStart: "0.80rem",
+      marginBlockEnd: "1.15rem",
     },
     body2: {
       fontSize: "1rem",
@@ -140,7 +140,7 @@ export const GlobalCss = withStyles({
     "blockquote p": {
       ...theme.typography.body1,
       textShadow: "0 1px white",
-      fontSize: "1.5rem",
+      fontSize: "1.55rem",
       color: theme.palette.text.secondary,
     },
     ol: {

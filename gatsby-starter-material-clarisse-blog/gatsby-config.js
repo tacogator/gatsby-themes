@@ -35,6 +35,11 @@ module.exports = {
       {
         name: `github`,
         url: `https://github.com/tacogator/gatsby-themes`,
+      },
+      {
+        name: 'Newsletter',
+        url: `https://duckagogo.com`,
+        type: 'cta'
       }
     ],
   },
