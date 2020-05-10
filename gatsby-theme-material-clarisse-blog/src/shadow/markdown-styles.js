@@ -10,6 +10,7 @@ const MarkdownStyles = {
     if (props) {
       return (
         <div
+          className="code-block"
           style={{
             borderRadius: "6px",
             background: "#ECEFF1",

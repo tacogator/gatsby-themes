@@ -11,6 +11,10 @@ import {
   YouTube,
 } from "@material-ui/icons"
 
+/**
+ * Social media or general external links.  Define `externalLinks` in gatsby-config.
+ * @param iconSize small|default|large
+ */
 export default function SocialLinks({ iconSize }) {
   const { externalLinks } = useSiteMetadata()
   const Icon_maps = {

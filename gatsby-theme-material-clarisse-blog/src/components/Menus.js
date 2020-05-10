@@ -15,9 +15,11 @@ import useSiteMetadata from "./use-site-metadata"
 import replaceSlashes from "../utils/replaceSlashes"
 //import BearEmailSubscription from "./bear/BearEmailSubscription"
 import SocialLinks from "./social-links"
+
 /**
  * Mobile side sliding menu
- * @param {*} param0
+ * @param open true|false
+ * @param onClose triggered by closing action ie Close button, clicking outside menu
  */
 export function SideMenu({ open, onClose }) {
   const { navigation } = useSiteMetadata()
@@ -54,10 +56,7 @@ export function SideMenu({ open, onClose }) {
 
       <Divider />
 
-      <Box
-        color="text.secondary"
-        padding={3}
-      >
+      <Box color="text.secondary" padding={3}>
         <Typography variant="body2">Follow us:</Typography>
         <Box display="flex" padding="1rem 1.5rem" flexWrap="wrap">
           <SocialLinks iconSize="large" />
@@ -73,7 +72,7 @@ export function SideMenu({ open, onClose }) {
 
 /**
  * Horizontal desktop menu
- * @param  props
+ * @param props extra props
  */
 export function DesktopMenu(props) {
   const { navigation } = useSiteMetadata()
@@ -103,7 +102,8 @@ const useStyles = makeStyles(theme => ({
   },
 
   mobileMenuItem: {
-    padding: theme.spacing(1.5, 3)
+    padding: theme.spacing(1.5, 3),
+    fontWeight: 500
   },
 
   desktopMenu: {
