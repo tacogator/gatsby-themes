@@ -19,6 +19,10 @@ module.exports = {
     // Navigation links
     navigation: [
       {
+        title: `Home`,
+        slug: `/`,
+      },
+      {
         title: `About`,
         slug: `/about`,
       },
@@ -38,7 +42,7 @@ module.exports = {
       },
       {
         name: 'Newsletter',
-        url: `https://duckagogo.com`,
+        url: `https://duckduckgo.com`,
         type: 'cta'
       }
     ],

@@ -27,7 +27,6 @@ export default function (props) {
       <Container maxWidth="md">
         <Typography color="inherit" variant="body2">
           <Box display="flex" justifyContent="space-evenly" paddingBottom={2}>
-            <Link to="/">Home</Link>
             {Array.isArray(navigation) &&
               navigation.map(({ slug, title }) => (
                 <Link key={slug} to={replaceSlashes(slug)}>

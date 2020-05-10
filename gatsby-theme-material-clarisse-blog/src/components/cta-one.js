@@ -11,7 +11,7 @@ export default function CtaOne(props) {
       color="primary"
       variant="text"
       component={Link}
-      href={cta.link}
+      href={cta.url}
     >
       {cta.name}
     </Button>
