@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-theme-material-clarisse-blog",
+  "name": "gatsby-theme-blog-material-clarisse",
   "private": false,
-  "description": "Material-UI blog theme for Gatsby",
+  "description": "Gatsby blog theme with material-ui",
   "version": "0.1.0",
   "author": "@tacogator",
   "dependencies": {

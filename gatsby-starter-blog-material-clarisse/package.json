@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-material-clarisse-blog",
+  "name": "gatsby-starter-blog-material-clarisse",
   "private": false,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Gatsby blog starter site built with material-ui",
   "version": "0.1.0",
   "author": "@tacogator",
   "dependencies": {
