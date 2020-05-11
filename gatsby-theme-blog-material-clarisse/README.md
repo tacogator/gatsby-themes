@@ -85,14 +85,15 @@ An example blog project:
 
 2.  **`/content/posts`**: This directory will contain all of the ariticles.  One dir per article.  Put photos in the dir.
 
-3.  **`src`**: This directory contains your own custom pages or components.  If you wish to override any Clarisse's components, please them in `src/@tacogator/gatsby-theme-blog-material-clarisse`.
+3.  **`/src`**: *(Optional)* This directory contains your own custom components or pages.  If you wish to override any Clarisse's components, please them in `src/@tacogator/gatsby-theme-blog-material-clarisse`.  See [shadowing docs](https://www.gatsbyjs.org/docs/themes/shadowing/).
+
+4. **`/static`**: Static assets such as branding images and logos.
 
 4.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
 
-## 🎓 Learning Gatsby
+## License
+MIT
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
+## Support
 
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
+Follow me on [Twitter](https://twitter.com/nacho_codes)!
