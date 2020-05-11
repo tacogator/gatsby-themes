@@ -2,37 +2,49 @@
   @tacogator/gatsby-theme-material-clarisse-blog
 </h1>
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+Launch a new blog with Clarisse template. Responsive design and minimalist styling suitable for long-form content.
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+Built on Material-UI.
 
-## 🚀 Quick start
+## ✿Installation
 
-1.  **Create a Gatsby site.**
+1. **Create a fresh blog from scratch**
 
-    Use the Gatsby CLI to create a new site, specifying the default starter.
+    Use the Gatsby CLI to create a new blog site, specifying Clarisse template as the starter.
 
     ```shell
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
+    # create a new Gatsby site using the Clarisse starter
+    gatsby new my-cool-blog https://github.com/tacogator/gatsby-themes/gatsby-starter-blog-material-clarisse
     ```
 
-1.  **Start developing.**
+2.  **Start developing.**
 
     Navigate into your new site’s directory and start it up.
 
     ```shell
-    cd my-default-starter/
+    cd my-cool-blog/
     gatsby develop
     ```
 
-1.  **Open the source code and start editing!**
-
     Your site is now running at `http://localhost:8000`!
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+**Optional**: you can also add Clarisse theme to an existing Gatsby project
+
+```shell
+yarn add @tacogator/gatsby-theme-blog-material-clarisse
+
+```
+
+Add theme to gatsby-config.js
+```shell
+plugin: [
+  ...
+  `gatsby-theme-material-clarisse-blog`,
+  ...
+]
+
+```
 
 ## 🧐 What's inside?
 
