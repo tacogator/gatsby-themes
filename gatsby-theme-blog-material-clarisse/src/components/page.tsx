@@ -19,8 +19,10 @@ const Page = ({ data: { page } }: PageProps) => (
   <>
     <SEO title={page.title} description={page.excerpt} />
     <Container maxWidth="md" className={useUtilStyles().topSpacer}>
-      <Typography variant="h1">{page.title}</Typography>
-      <section style={{marginTop: "2rem"}}>
+      <Typography variant="h1" >
+        {page.title}
+      </Typography>
+      <section style={{ marginTop: "2rem" }}>
         <MDXRenderer>{page.body}</MDXRenderer>
       </section>
     </Container>

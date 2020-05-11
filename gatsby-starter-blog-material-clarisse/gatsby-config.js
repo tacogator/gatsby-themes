@@ -49,7 +49,7 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-theme-material-clarisse-blog`,
+      resolve: `gatsby-theme-blog-material-clarisse`,
     },
     `gatsby-plugin-sitemap`,
     {

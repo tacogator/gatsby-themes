@@ -8,6 +8,7 @@ import {
   makeStyles,
   withStyles,
   Box,
+  useScrollTrigger,
 } from "@material-ui/core"
 
 const MinAppBar = withStyles(theme => ({
@@ -41,45 +42,44 @@ export default function BearAppBar({
   ...rest
 }) {
   const classes = useStyles()
+  const scrolled = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 120,
+  })
+
   return (
     <MinAppBar {...rest} elevation={0}>
-      <Container
-        maxWidth="lg"
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <Box>{mobileMenu && <Hidden lgUp>{mobileMenu}</Hidden>}</Box>
-
-        <Box
-          display="flex"
-          flexDirection="column"
-          flexWrap="wrap"
-          alignItems="center"
-        >
-          {desktopCenter && (
-            <Hidden only={["xs", "sm"]}>{desktopCenter}</Hidden>
-          )}
+      <Container maxWidth="lg" className={classes.navbar}>
+        <Box display="flex" flexWrap="nowrap" alignItems="center">
+          {mobileMenu && <Hidden lgUp>{mobileMenu}</Hidden>}
+          <Hidden only={["md", "lg", "xl"]}>{mobileBranding}</Hidden>
+          <Hidden only={["xs", "sm", "md"]}>{scrolled && mobileBranding}</Hidden>
         </Box>
-        <SlimToolbar className={classes.desktopMenu}>
-          {/* <Hidden only={["xs", "sm"]}>{desktopMenu}</Hidden> */}
-          {rightCTA}
-        </SlimToolbar>
+        {desktopCenter && (
+          <Hidden only={["xs", "sm"]} className={classes.desktopCenterNav}>
+            {desktopCenter}
+          </Hidden>
+        )}
+        <SlimToolbar className={classes.desktopCTA}>{rightCTA}</SlimToolbar>
       </Container>
     </MinAppBar>
   )
 }
 
 const useStyles = makeStyles(theme => ({
-  desktopMenu: {
-    transition: "1s",
-    "& > button": {
-      marginRight: theme.spacing(2),
+  navbar: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    "& > div": {
+      flex: "1 0 0",
     },
-    "& > button:last-child": {
-      marginRight: theme.spacing(0),
-    },
+  },
+  desktopCenterNav: {
+    justifyContent: "center",
+  },
+
+  desktopCTA: {
+    justifyContent: "flex-end",
   },
 }))

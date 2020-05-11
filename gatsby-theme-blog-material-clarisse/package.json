@@ -23,8 +23,8 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.0.0",
+    "typeface-aleo": "^0.0.69",
     "typeface-cooper-hewitt": "^0.0.44",
-    "typeface-playfair-display": "^1.1.4",
     "validate.js": "^0.13.1"
   },
   "devDependencies": {

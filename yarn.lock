@@ -16045,6 +16045,11 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+typeface-aleo@^0.0.69:
+  version "0.0.69"
+  resolved "https://registry.yarnpkg.com/typeface-aleo/-/typeface-aleo-0.0.69.tgz#887a411122e0eb109f478fc2f9164be7492984fd"
+  integrity sha512-GWQ1BrgQfu0TFSr1TQTXhPocb+sAequcbVO6R+TEh7rpo9l4CN4hdHLq0Z32pKNJqAH6FW3B/GA1cGHbhhdVjQ==
+
 typeface-cooper-hewitt@^0.0.44:
   version "0.0.44"
   resolved "https://registry.yarnpkg.com/typeface-cooper-hewitt/-/typeface-cooper-hewitt-0.0.44.tgz#def4915d143bebb8a9a1ca4ea6b81946271a2a57"
@@ -16059,11 +16064,6 @@ typeface-lato@^0.0.75:
   version "0.0.75"
   resolved "https://registry.yarnpkg.com/typeface-lato/-/typeface-lato-0.0.75.tgz#8aa11c5611dc38416837c089b265a2abd1f7dd31"
   integrity sha512-iA5uJD4PSTyIE4BDiSOexQeXkDkiJuX4Hu3wh3saJ06EB2TvJayab1Lbbmqq2je/LQv7KCQZHZmC0k4hedd8sw==
-
-typeface-playfair-display@^1.1.4:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/typeface-playfair-display/-/typeface-playfair-display-1.1.4.tgz#ef37c9847a48996e1250cfd726387c36b34ecd07"
-  integrity sha512-FhzVmu6EE3LMsYTxG4x3DFkzhGHnv7/5Ltf6U9i6kDnQZQ4STtB2sVdrZ+wEqvr7oX0s+E8IjfL5ycMzBofiWw==
 
 ua-parser-js@^0.7.18:
   version "0.7.21"

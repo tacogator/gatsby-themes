@@ -1,6 +1,6 @@
 import { createMuiTheme, withStyles } from "@material-ui/core"
 require("typeface-cooper-hewitt")
-require("typeface-playfair-display")
+require("typeface-aleo")
 
 const breakpointValues = {
   xs: 0,
@@ -37,31 +37,29 @@ const theme = createMuiTheme({
       boxShadow: "none",
     },
     h1: {
-      fontSize: "2.25rem",
-      fontWeight: "400",
-      fontFamily: "Playfair Display, Serif",
-      lineHeight: "2.5rem",
-      textTransform: "uppercase",
+      fontSize: "2.75rem",
+      fontWeight: "500",
+      fontFamily: "Aleo, Serif",
+      lineHeight: "1.5",
     },
     h2: {
       fontSize: "1.65rem",
       fontWeight: "600",
       fontFamily: "Cooper Hewitt,Helvetica neue,helvetica,sans-serif",
-      //lineHeight: "2rem",
       letterSpacing: "-0.05rem",
       marginBlockStart: "2.5rem",
     },
     h3: {
       fontSize: "1.75rem",
       fontWeight: "500",
-      fontFamily: "Playfair Display, Serif",
+      fontFamily: "Aleo, Serif",
       letterSpacing: "-0.05rem",
     },
     h6: {
-      fontSize: "1.45rem",
+      fontSize: "1.65rem",
       fontWeight: "500",
-      fontFamily: "Playfair Display, Serif",
-      lineHeight: "2rem",
+      fontFamily: "Aleo, Serif",
+      lineHeight: "1.5",
       letterSpacing: "-0.05rem",
       "& a": {
         color: "inherit",
@@ -69,10 +67,10 @@ const theme = createMuiTheme({
       },
     },
     body1: {
-      fontSize: "1.38rem",
+      fontSize: "1.25rem",
       fontWeight: "400",
       fontFamily: "Cooper Hewitt,Helvetica neue,helvetica,sans-serif",
-      lineHeight: "2.32rem",
+      lineHeight: "1.72",
       marginBlockStart: "1rem",
       marginBlockEnd: "1rem",
     },
@@ -98,7 +96,7 @@ const theme = createMuiTheme({
       main: "#00897b",
     },
     background: {
-      default: `rgba(253, 254, 254 , 0.95)`,
+      default: `rgba(253, 254, 254)`,
     },
   },
   breakpoints: { values: breakpointValues },
@@ -133,7 +131,15 @@ export const GlobalCss = withStyles({
     },
     p: {
       ...theme.typography.body1,
+      fontSize: "1.35rem"
     },
+    ".branding": {
+      fontFamily: "Aleo, Serif",
+    },
+    "p + p": {
+      paddingTop: "1.25rem"
+    },
+
     blockquote: {
       padding: "1.5rem",
     },
@@ -144,7 +150,7 @@ export const GlobalCss = withStyles({
       color: theme.palette.text.secondary,
     },
     ol: {
-      padding: "0.75rem 2rem",
+      padding: "0.25rem 2rem",
     },
     ul: {
       padding: "0.75rem 2rem",

@@ -3,50 +3,48 @@ import {
   Button,
   IconButton,
   Fade,
-  Typography,
   Hidden,
   Box,
   Container,
+  makeStyles,
 } from "@material-ui/core"
 import { Menu } from "@material-ui/icons"
 
-import Link from "./Link"
 import BearAppBar from "./bear/BearAppBar"
 import { SideMenu, DesktopMenu } from "./Menus"
 import SocialLinks from "./social-links"
 import CtaOne from "./cta-one"
+import Branding from "../shadow/branding";
 
 export default function ({ location }) {
   const [open, setMenuState] = useState(false)
 
   // optional var to handle non-home page rendering
   // const isHome = location.pathname === "/" || false
+  const classes = useStyles()
 
   return (
     <>
-      <Container
-        maxWidth="xl"
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <div>
-          <Hidden only={["xs", "sm", "md"]}>
-            <Box color="text.secondary" display="flex: 1 0 calc(25% - 10px)">
-              <SocialLinks iconSize="small" />
-            </Box>
-          </Hidden>
-        </div>
-        <DesktopBranding />
-
-        <div>
-          <CtaOne/>
-        </div>
-      </Container>
+      <Hidden mdDown>
+        <Container maxWidth="xl" className={classes.navbar}>
+          <div>
+            <Hidden only={["xs", "sm", "md"]}>
+              <Box color="text.secondary" display="flex: 1 0 calc(25% - 10px)">
+                <SocialLinks iconSize="small" />
+              </Box>
+            </Hidden>
+          </div>
+          <div className={classes.center}>
+            <Branding />
+          </div>
+          <div>
+            <CtaOne />
+          </div>
+        </Container>
+      </Hidden>
       <BearAppBar
         position="sticky"
+        mobileBranding={<Branding mobile={true} />}
         desktopCenter={<DesktopMenu />}
         mobileMenu={
           <IconButton
@@ -70,14 +68,24 @@ export default function ({ location }) {
   )
 }
 
-const DesktopBranding = props => (
-  <Typography
-    variant="h1"
-    color="textPrimary"
-    style={{ margin: "2.5rem 0rem", fontSize: "2.75rem" }}
-  >
-    <Link to="/" color="inherit" style={{ textDecoration: "none" }}>
-      Clarisse McClellan
-    </Link>
-  </Typography>
-)
+
+
+const useStyles = makeStyles(theme => ({
+  navbar: {
+    padding: theme.spacing(3, 2),
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    "& > div": {
+      flex: "1 0 0",
+    },
+    "& > :last-child": {
+      display: "flex",
+      justifyContent: "flex-end",
+    },
+  },
+  center: {
+    display: "flex",
+    justifyContent: "center",
+  },
+}))

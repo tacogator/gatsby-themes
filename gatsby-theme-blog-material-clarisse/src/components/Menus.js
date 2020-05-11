@@ -77,7 +77,7 @@ export function SideMenu({ open, onClose }) {
 export function DesktopMenu(props) {
   const { navigation } = useSiteMetadata()
   return (
-    <SlimToolbar disableGutters className={useStyles().desktopMenu}>
+    <SlimToolbar disableGutters className={useStyles().desktopMenuItem}>
       {Array.isArray(navigation) &&
         navigation.map(({ slug, title }) => (
           <Button
@@ -106,12 +106,7 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 500
   },
 
-  desktopMenu: {
-    "& > button": {
-      marginRight: theme.spacing(3),
-    },
-    "& > button:last-child": {
-      marginRight: theme.spacing(0),
-    },
+  desktopMenuItem: {
+    justifyContent: "center"
   },
 }))
