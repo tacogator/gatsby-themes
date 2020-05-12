@@ -1,0 +1,19 @@
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+#___gatsby {
+  height: 100%;
+}
+#gatsby-focus-wrapper {
+  height: 100%;
+}
+
+a {
+  color: inherit
+}
