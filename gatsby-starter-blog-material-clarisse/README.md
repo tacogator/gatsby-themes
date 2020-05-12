@@ -13,4 +13,4 @@ gatsby new my-cool-blog https://github.com/tacogator/gatsby-themes/gatsby-starte
 Live demo: https://gatsby-theme-clarisse.netlify.app
 
 ## Documentation
-See https://github.com/tacogator/gatsby-themes/gatsby-theme-blog-material-clarisse
+See https://github.com/tacogator/gatsby-themes/tree/master/gatsby-theme-blog-material-clarisse
