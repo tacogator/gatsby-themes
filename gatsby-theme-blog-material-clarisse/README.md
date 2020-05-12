@@ -1,10 +1,12 @@
-<h1 align="center">
-  @tacogator/gatsby-theme-material-clarisse-blog
-</h1>
+<h2 align="center">
+  Gatsby blog theme for writers
+</h2>
 
 Launch a new blog with Clarisse template. Responsive design and minimalist styling.  Suitable for long-form content or personal blog.
 
 Built with Material-UI.
+
+Live demo: https://gatsby-theme-clarisse.netlify.app
 
 ## ✿ Installation
 
@@ -52,11 +54,10 @@ plugin: [
 
 ## Directory structue
 
-Clarisse theme follows the standard Gatsby project layout. 
+Clarisse theme follows standard Gatsby project structure. 
 
 An example blog project:
 
-    .
     ├── ...
     ├── static
     ├── content
@@ -83,13 +84,13 @@ An example blog project:
 
 1.  **`/content/pages`**: This directory contains all of the static pages.  One dir per page.
 
-2.  **`/content/posts`**: This directory will contain all of the ariticles.  One dir per article.  Put photos in the dir.
+2.  **`/content/posts`**: This directory contain all of the ariticles.  One dir per article.  Put photos in the dir.
 
-3.  **`/src`**: *(Optional)* This directory contains your own custom components or pages.  If you wish to override any Clarisse's components, please them in `src/@tacogator/gatsby-theme-blog-material-clarisse`.  See [shadowing docs](https://www.gatsbyjs.org/docs/themes/shadowing/).
+3.  **`/src`**: *(Optional)* This directory contains your own custom components or pages.  If you wish to override (or "shadow") any Clarisse's components, place them in `src/@tacogator/gatsby-theme-blog-material-clarisse`.  See Gatsby [shadowing docs](https://www.gatsbyjs.org/docs/themes/shadowing/).
 
 4. **`/static`**: Static assets such as branding images and logos.
 
-4.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
+4.  **`gatsby-config.js`**: Gatsby configuration file.  This is where you provide information about your site (metadata) like the site title, description, navigation links and branding images.
 
 ## License
 MIT
