@@ -2,7 +2,7 @@
   "name": "@tacogator/gatsby-theme-blog-material-clarisse",
   "private": false,
   "description": "Gatsby minimalist blog theme with material-ui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "@tacogator",
   "dependencies": {
     "@lekoarts/gatsby-theme-minimal-blog-core": "^2.2.7",
