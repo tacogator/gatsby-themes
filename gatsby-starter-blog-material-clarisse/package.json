@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-blog-material-clarisse",
+  "name": "@tacogator/gatsby-starter-blog-material-clarisse",
   "private": false,
-  "description": "Gatsby blog starter site built with material-ui",
+  "description": "Gatsby minimalist blog starter site built with material-ui",
   "version": "0.1.0",
   "author": "@tacogator",
   "dependencies": {
@@ -30,9 +30,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/tacogator/gatsby-themes"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/tacogator/gatsby-themes/issues"
   }
 }
