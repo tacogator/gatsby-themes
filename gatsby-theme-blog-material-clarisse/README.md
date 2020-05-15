@@ -2,13 +2,20 @@
   Gatsby blog theme for writers
 </h2>
 
-Launch a new blog with Clarisse template. Responsive design and minimalist styling.  Suitable for long-form content or personal blog.
+Launch a new blog with Clarisse template.
 
-Built with Material-UI.
+**Features**
+- Write post in Markdown or MDX
+- SEO-ready
+- Minimalist design with emphasis on Call-to-action
+- Tag/category support
+- Desktop and mobile responsive layout
+- Customizable branding & navigation
+- Material-UI
 
 Live demo: https://gatsby-theme-clarisse.netlify.app
 
-## ✿ Installation
+## ☕️ Installation
 
 1. **Create a fresh blog from scratch**
 
@@ -16,7 +23,7 @@ Live demo: https://gatsby-theme-clarisse.netlify.app
 
     ```shell
     # create a new Gatsby site using Clarisse starter
-    gatsby new my-cool-blog https://github.com/tacogator/gatsby-themes/gatsby-starter-blog-material-clarisse
+    gatsby new my-cool-blog https://github.com/tacogator/gatsby-starter-blog-material-clarisse
     ```
 
 2.  **Start developing.**
@@ -30,8 +37,7 @@ Live demo: https://gatsby-theme-clarisse.netlify.app
 
     Your site is now running at `http://localhost:8000`!
 
-
-## ☕️ Add Clarisse to existing Gatsby project: 
+**Add Clarisse to existing Gatsby project:**
 
 Alternatively, you can add Clarisse theme to an existing Gatsby project.
 
@@ -54,7 +60,7 @@ plugin: [
 
 ## Directory structue
 
-Clarisse theme follows standard Gatsby project structure. 
+Clarisse theme supports standard Gatsby project structure. 
 
 An example blog project:
 
