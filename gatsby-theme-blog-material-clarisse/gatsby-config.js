@@ -23,6 +23,16 @@ module.exports = {
         slug: `/about`,
       },
     ],
+    externalLinks: [
+      {
+        name: `twitter`,
+        url: `https://twitter.com/nacho_codes`,
+      },
+      {
+        name: `github`,
+        url: `https://github.com/tacogator/gatsby-themes`,
+      },
+    ],
   },
   plugins: [
     {
