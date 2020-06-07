@@ -19,8 +19,16 @@ module.exports = {
     // Navigation links
     navigation: [
       {
+        title: `Home`,
+        slug: `/`,
+      },
+      {
         title: `About`,
         slug: `/about`,
+      },
+      {
+        title: `Contact`,
+        slug: `/contact`,
       },
     ],
     externalLinks: [

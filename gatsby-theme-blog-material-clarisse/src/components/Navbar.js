@@ -77,12 +77,12 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "space-between",
     alignItems: "center",
     "& > div": {
-      flex: "1 0 0",
+      flex: "1 0 0"
     },
-    "& > :last-child": {
-      display: "flex",
-      justifyContent: "flex-end",
-    },
+    // "& > :last-child": {
+    //   display: "flex",
+    //   justifyContent: "flex-end",
+    // },
   },
   center: {
     display: "flex",

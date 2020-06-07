@@ -107,6 +107,6 @@ const useStyles = makeStyles(theme => ({
   },
 
   desktopMenuItem: {
-    justifyContent: "center"
+    justifyContent: "space-evenly"
   },
 }))
