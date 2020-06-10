@@ -13,7 +13,7 @@ import { SlimToolbar } from "./bear/BearAppBar"
 import { Link } from "gatsby"
 import useSiteMetadata from "./use-site-metadata"
 import replaceSlashes from "../utils/replaceSlashes"
-//import BearEmailSubscription from "./bear/BearEmailSubscription"
+import BearEmailSubscription from "./bear/BearEmailSubscription"
 import SocialLinks from "./social-links"
 
 /**
@@ -65,7 +65,7 @@ export function SideMenu({ open, onClose }) {
 
       <Divider />
 
-      {/* <BearEmailSubscription /> */}
+      <BearEmailSubscription />
     </Drawer>
   )
 }

@@ -77,6 +77,7 @@ const theme = createMuiTheme({
     body2: {
       fontSize: "1rem",
       fontWeight: "400",
+      fontFamily: "Aleo, Serif",
     },
   },
   palette: {
