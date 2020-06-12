@@ -13,9 +13,8 @@ import { SlimToolbar } from "./bear/BearAppBar"
 import { Link } from "gatsby"
 import useSiteMetadata from "./use-site-metadata"
 import replaceSlashes from "../utils/replaceSlashes"
-import BearEmailSubscription from "./bear/BearEmailSubscription"
 import SocialLinks from "./social-links"
-
+import Mailchimp from "./mailchimp"
 /**
  * Mobile side sliding menu
  * @param open true|false
@@ -64,8 +63,7 @@ export function SideMenu({ open, onClose }) {
       </Box>
 
       <Divider />
-
-      <BearEmailSubscription />
+      <Mailchimp/>
     </Drawer>
   )
 }
@@ -103,10 +101,10 @@ const useStyles = makeStyles(theme => ({
 
   mobileMenuItem: {
     padding: theme.spacing(1.5, 3),
-    fontWeight: 500
+    fontWeight: 500,
   },
 
   desktopMenuItem: {
-    justifyContent: "space-evenly"
+    justifyContent: "space-evenly",
   },
 }))

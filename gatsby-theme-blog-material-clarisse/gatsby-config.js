@@ -49,6 +49,14 @@ module.exports = {
         component: require.resolve(`./src/TopLayout.js`),
       },
     },
+    {
+      resolve: "gatsby-plugin-mailchimp",
+      options: {
+        endpoint:
+          "https://gmail.us20.list-manage.com/subscribe/post?u=786601ed01260900f7a6d1546&amp;id=4e6bf36386",
+        timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
+      },
+    },
     `gatsby-plugin-material-ui`,
     `@lekoarts/gatsby-theme-minimal-blog-core`,
     `gatsby-plugin-react-helmet`,

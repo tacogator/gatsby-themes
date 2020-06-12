@@ -8,6 +8,8 @@ import {
   withStyles,
   createStyles,
   makeStyles,
+  FormControl,
+  FormHelperText,
   InputBase,
   Grid,
   Typography,
@@ -20,11 +22,20 @@ const emailConstraint = {
   },
 }
 
-export default function ({ message, ctaLabel }) {
-  const [{ email, sending, isEmailValid }, setState] = useState({
+export default function BearEmailSubscription({
+  placeholder,
+  message,
+  postSubscribeMessage,
+  subscribed,
+  error,
+  errorMessage,
+  sending,
+  ctaLabel,
+  onSubmit,
+}) {
+  const [{ email, isEmailValid }, setState] = useState({
     email: "",
     isEmailValid: false,
-    sending: false,
   })
 
   const _validate_email = e => {
@@ -35,46 +46,70 @@ export default function ({ message, ctaLabel }) {
 
   const classes = useStyles()
   return (
-    <Container maxWidth="sm" className={classes.container}>
-      <Typography variant="body2">Get useful <em>Dev notes</em> in your inbox.</Typography>
-      <div className={classes.root}>
-        <InputBase
-          placeholder="Email"
-          id="email"
-          className={classes.inputWrapper}
-          classes={{
-            input: classes.input,
-          }}
-          label="Email"
-          name="email"
-          type="email"
-          color="secondary"
-          required
-          value={email}
-          error={!isEmailValid}
-          onChange={_validate_email}
-        />
-        <Button
-          type="submit"
-          variant="contained"
-          disabled={sending || !isEmailValid}
-          color="primary"
-          //onClick={this.sendFeedback}
-          className={classes.button}
-        >
-          {ctaLabel ? ctaLabel : "Subscribe"}
-        </Button>
-      </div>
-    </Container>
+    <div className={classes.container}>
+      <Typography variant="body2">{message || "Stay updated!"}</Typography>
+      {subscribed && (
+        <Typography variant="body2">
+          <Box fontSize="0.85rem" fontWeight={500}>
+            {postSubscribeMessage}
+          </Box>
+        </Typography>
+      )}
+      {error && (
+        <Typography variant="body2">
+          <Box fontSize="0.85rem" fontWeight={500}>
+            {errorMessage}
+          </Box>
+        </Typography>
+      )}
+      {!subscribed &&
+        !error && (
+          <div className={classes.root}>
+            <InputBase
+              autoFocus
+              placeholder={placeholder || "Enter your email"}
+              id="email"
+              className={classes.inputWrapper}
+              classes={{
+                input: classes.input,
+              }}
+              label="Email"
+              name="email"
+              type="email"
+              color="secondary"
+              required
+              value={email}
+              error={!isEmailValid}
+              disabled={sending}
+              onChange={_validate_email}
+            />
+            <Button
+              type="submit"
+              variant="contained"
+              disabled={sending || !isEmailValid}
+              color="primary"
+              onClick={() => onSubmit({ email })}
+              className={classes.button}
+            >
+              {ctaLabel ? ctaLabel : "Subscribe"}
+            </Button>
+          </div>
+        )}
+      <FormHelperText id="subscribe-helper-text">
+        {!isEmailValid && email ? "Please enter a valid e-mail." : " "}
+        {sending && email && "Sending..."}
+      </FormHelperText>
+    </div>
   )
 }
 
 const useStyles = makeStyles(theme => ({
   container: {
     padding: `${theme.spacing(4)}px ${theme.spacing(3)}px`,
-    backgroundColor: theme.palette.grey[100]
+    backgroundColor: theme.palette.grey[100],
   },
   root: {
+    marginTop: theme.spacing(2),
     display: "flex",
     alignItems: "center",
     width: "100%",
@@ -84,7 +119,9 @@ const useStyles = makeStyles(theme => ({
     border: `1px solid ${theme.palette.grey[400]}`,
     borderRight: "none",
     borderRadius: `${theme.shape.borderRadius}px 0 0 ${theme.shape.borderRadius}px`,
-    flex: 1
+    flex: 1,
+    marginBlockStart: "0rem",
+    marginBlockEnd: "0rem",
   },
   input: {
     padding: `0px ${theme.spacing(1)}px`,
@@ -93,5 +130,5 @@ const useStyles = makeStyles(theme => ({
   button: {
     height: "52px",
     borderRadius: `0 ${theme.shape.borderRadius}px ${theme.shape.borderRadius}px 0`,
-  }
+  },
 }))

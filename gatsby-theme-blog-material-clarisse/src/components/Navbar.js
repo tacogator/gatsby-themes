@@ -14,7 +14,8 @@ import BearAppBar from "./bear/BearAppBar"
 import { SideMenu, DesktopMenu } from "./Menus"
 import SocialLinks from "./social-links"
 import CtaOne from "./cta-one"
-import Branding from "../shadow/branding";
+import CtaMain from "./cta-main"
+import Branding from "../shadow/branding"
 
 export default function ({ location }) {
   const [open, setMenuState] = useState(false)
@@ -55,20 +56,12 @@ export default function ({ location }) {
             <Menu />
           </IconButton>
         }
-        rightCTA={
-          <Fade in={true} timeout={1200}>
-            <Button color="secondary" variant="contained">
-              Subscribe
-            </Button>
-          </Fade>
-        }
+        rightCTA={<CtaMain />}
       />
       <SideMenu open={open} onClose={() => setMenuState(false)} />
     </>
   )
 }
-
-
 
 const useStyles = makeStyles(theme => ({
   navbar: {
@@ -77,7 +70,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "space-between",
     alignItems: "center",
     "& > div": {
-      flex: "1 0 0"
+      flex: "1 0 0",
     },
     // "& > :last-child": {
     //   display: "flex",
